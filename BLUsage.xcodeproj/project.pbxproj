@@ -1,0 +1,288 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		812E8F9613B3DB7E0086D28D /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 812E8F9513B3DB7E0086D28D /* Cocoa.framework */; };
+		812E8FA013B3DB7E0086D28D /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 812E8F9E13B3DB7E0086D28D /* InfoPlist.strings */; };
+		812E8FA313B3DB7E0086D28D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FA213B3DB7E0086D28D /* main.m */; };
+		812E8FA613B3DB7E0086D28D /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 812E8FA413B3DB7E0086D28D /* Credits.rtf */; };
+		812E8FA913B3DB7E0086D28D /* BLUsageAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FA813B3DB7E0086D28D /* BLUsageAppDelegate.m */; };
+		812E8FAC13B3DB7E0086D28D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 812E8FAA13B3DB7E0086D28D /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		812E8F9113B3DB7E0086D28D /* BLUsage.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BLUsage.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		812E8F9513B3DB7E0086D28D /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		812E8F9813B3DB7E0086D28D /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		812E8F9913B3DB7E0086D28D /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		812E8F9A13B3DB7E0086D28D /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		812E8F9D13B3DB7E0086D28D /* BLUsage-Info.plist */ = {isa = PBXFileReference; path = "BLUsage-Info.plist"; sourceTree = "<group>"; };
+		812E8F9F13B3DB7E0086D28D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		812E8FA113B3DB7E0086D28D /* BLUsage-Prefix.pch */ = {isa = PBXFileReference; path = "BLUsage-Prefix.pch"; sourceTree = "<group>"; };
+		812E8FA213B3DB7E0086D28D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		812E8FA513B3DB7E0086D28D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		812E8FA713B3DB7E0086D28D /* BLUsageAppDelegate.h */ = {isa = PBXFileReference; path = BLUsageAppDelegate.h; sourceTree = "<group>"; };
+		812E8FA813B3DB7E0086D28D /* BLUsageAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BLUsageAppDelegate.m; sourceTree = "<group>"; };
+		812E8FAB13B3DB7E0086D28D /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		812E8F8E13B3DB7E0086D28D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812E8F9613B3DB7E0086D28D /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		812E8F8613B3DB7E0086D28D = {
+			isa = PBXGroup;
+			children = (
+				812E8F9B13B3DB7E0086D28D /* BLUsage */,
+				812E8F9413B3DB7E0086D28D /* Frameworks */,
+				812E8F9213B3DB7E0086D28D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		812E8F9213B3DB7E0086D28D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				812E8F9113B3DB7E0086D28D /* BLUsage.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		812E8F9413B3DB7E0086D28D /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				812E8F9513B3DB7E0086D28D /* Cocoa.framework */,
+				812E8F9713B3DB7E0086D28D /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		812E8F9713B3DB7E0086D28D /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				812E8F9813B3DB7E0086D28D /* AppKit.framework */,
+				812E8F9913B3DB7E0086D28D /* CoreData.framework */,
+				812E8F9A13B3DB7E0086D28D /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		812E8F9B13B3DB7E0086D28D /* BLUsage */ = {
+			isa = PBXGroup;
+			children = (
+				812E8FA713B3DB7E0086D28D /* BLUsageAppDelegate.h */,
+				812E8FA813B3DB7E0086D28D /* BLUsageAppDelegate.m */,
+				812E8FAA13B3DB7E0086D28D /* MainMenu.xib */,
+				812E8F9C13B3DB7E0086D28D /* Supporting Files */,
+			);
+			path = BLUsage;
+			sourceTree = "<group>";
+		};
+		812E8F9C13B3DB7E0086D28D /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				812E8F9D13B3DB7E0086D28D /* BLUsage-Info.plist */,
+				812E8F9E13B3DB7E0086D28D /* InfoPlist.strings */,
+				812E8FA113B3DB7E0086D28D /* BLUsage-Prefix.pch */,
+				812E8FA213B3DB7E0086D28D /* main.m */,
+				812E8FA413B3DB7E0086D28D /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		812E8F9013B3DB7E0086D28D /* BLUsage */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 812E8FAF13B3DB7E0086D28D /* Build configuration list for PBXNativeTarget "BLUsage" */;
+			buildPhases = (
+				812E8F8D13B3DB7E0086D28D /* Sources */,
+				812E8F8E13B3DB7E0086D28D /* Frameworks */,
+				812E8F8F13B3DB7E0086D28D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = BLUsage;
+			productName = BLUsage;
+			productReference = 812E8F9113B3DB7E0086D28D /* BLUsage.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		812E8F8813B3DB7E0086D28D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				ORGANIZATIONNAME = Home;
+			};
+			buildConfigurationList = 812E8F8B13B3DB7E0086D28D /* Build configuration list for PBXProject "BLUsage" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 812E8F8613B3DB7E0086D28D;
+			productRefGroup = 812E8F9213B3DB7E0086D28D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				812E8F9013B3DB7E0086D28D /* BLUsage */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		812E8F8F13B3DB7E0086D28D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812E8FA013B3DB7E0086D28D /* InfoPlist.strings in Resources */,
+				812E8FA613B3DB7E0086D28D /* Credits.rtf in Resources */,
+				812E8FAC13B3DB7E0086D28D /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		812E8F8D13B3DB7E0086D28D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				812E8FA313B3DB7E0086D28D /* main.m in Sources */,
+				812E8FA913B3DB7E0086D28D /* BLUsageAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		812E8F9E13B3DB7E0086D28D /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				812E8F9F13B3DB7E0086D28D /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		812E8FA413B3DB7E0086D28D /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				812E8FA513B3DB7E0086D28D /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		812E8FAA13B3DB7E0086D28D /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				812E8FAB13B3DB7E0086D28D /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		812E8FAD13B3DB7E0086D28D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = DEBUG;
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		812E8FAE13B3DB7E0086D28D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_32_64_BIT)";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.6;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		812E8FB013B3DB7E0086D28D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BLUsage/BLUsage-Prefix.pch";
+				INFOPLIST_FILE = "BLUsage/BLUsage-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		812E8FB113B3DB7E0086D28D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "BLUsage/BLUsage-Prefix.pch";
+				INFOPLIST_FILE = "BLUsage/BLUsage-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		812E8F8B13B3DB7E0086D28D /* Build configuration list for PBXProject "BLUsage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				812E8FAD13B3DB7E0086D28D /* Debug */,
+				812E8FAE13B3DB7E0086D28D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		812E8FAF13B3DB7E0086D28D /* Build configuration list for PBXNativeTarget "BLUsage" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				812E8FB013B3DB7E0086D28D /* Debug */,
+				812E8FB113B3DB7E0086D28D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 812E8F8813B3DB7E0086D28D /* Project object */;
+}
