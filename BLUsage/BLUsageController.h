@@ -8,6 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
+#import "BLUsage.h"
+
 
 @interface BLUsageController : NSObject {
 @private
@@ -20,6 +22,8 @@
     NSTextField *lastUpdateField;
     
     NSTextField *totalUsageField;
+    
+    BLUsage *usageModel;
 }
 
 @property (assign) IBOutlet NSTextField *usernameField;

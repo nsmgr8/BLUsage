@@ -24,7 +24,7 @@
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        usageModel = [BLUsage new];
     }
     
     return self;
@@ -36,6 +36,12 @@
 }
 
 - (IBAction)updateUsage:(id)sender {
+    usageModel.username = self.usernameField.stringValue;
+    usageModel.password = self.passwordField.stringValue;
+    usageModel.from = [self.fromDate dateValue];
+    usageModel.to = [self.toDate dateValue];
+    
+    NSLog(@"%@", usageModel);
 }
 
 @end

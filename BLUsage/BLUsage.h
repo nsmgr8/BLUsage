@@ -19,6 +19,8 @@
     NSDate *lastUpdated;
     
     int totalUsage;
+    
+    NSDateFormatter *dateFormatter;
 }
 
 @property (retain, nonatomic) NSString *username;

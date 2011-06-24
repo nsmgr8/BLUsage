@@ -24,7 +24,7 @@
 {
     self = [super init];
     if (self) {
-        // Initialization code here.
+        dateFormatter = [NSDateFormatter new];
     }
     
     return self;
@@ -32,7 +32,13 @@
 
 - (void)dealloc
 {
+    [dateFormatter release];
     [super dealloc];
+}
+
+- (NSString*) description {
+    [dateFormatter setDateFormat:@"dd/MM/YYYY"];
+    return [NSString stringWithFormat:@"%@ [%@, %@]", self.username, [dateFormatter stringFromDate:self.from], [dateFormatter stringFromDate:self.to], nil];
 }
 
 @end

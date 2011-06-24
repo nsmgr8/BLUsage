@@ -8,11 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 
+#import "BLUsageController.h"
+
 @interface BLUsageAppDelegate : NSObject <NSApplicationDelegate> {
 @private
     NSWindow *window;
+    BLUsageController *controller;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet BLUsageController *controller;
 
 @end
