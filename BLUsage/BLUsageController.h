@@ -38,6 +38,8 @@
 @property (assign) IBOutlet NSTextField *totalUsageField;
 @property (assign) IBOutlet NSTableView *detailTableView;
 
+@property (readonly) BLUsage *usageModel;
+
 - (IBAction)updateUsage:(id)sender;
 
 - (void)updateUI:(NSDictionary *)data;

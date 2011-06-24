@@ -18,15 +18,13 @@
 
 @synthesize from;
 @synthesize to;
-@synthesize lastUpdate;
-
-@synthesize totalUsage;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         dateFormatter = [NSDateFormatter new];
+        plistPath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.plist"] retain];
     }
     
     return self;
@@ -43,12 +41,22 @@
 - (void)dealloc
 {
     [dateFormatter release];
+    [plistPath release];
     [super dealloc];
 }
 
 - (NSString*) description {
     [dateFormatter setDateFormat:@"dd/MM/YYYY"];
     return [NSString stringWithFormat:@"%@ [%@, %@]", self.username, [dateFormatter stringFromDate:self.from], [dateFormatter stringFromDate:self.to], nil];
+}
+
+- (BOOL)loadData {
+    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    if (dict) {
+        [controller updateUI:dict];
+        return YES;
+    }
+    return NO;
 }
 
 - (void)startUpdate {
@@ -104,8 +112,11 @@
     }
 
     NSString *total = [[[[trs lastObject] nodesForXPath:@"./td" error:nil] lastObject] stringValue];
-    NSDictionary *usage = [NSDictionary dictionaryWithObjectsAndKeys:data, @"detail", total, @"total", nil];
+    NSDictionary *usage = [NSDictionary dictionaryWithObjectsAndKeys:data, @"detail",
+                           total, @"total", [NSDate date], @"updated_at", self.username, @"username",
+                           self.password, @"password", self.from, @"from", self.to, @"to", nil];
 
+    [usage writeToFile:plistPath atomically:YES];    
     [controller updateUI:usage];
     
     [connection release];

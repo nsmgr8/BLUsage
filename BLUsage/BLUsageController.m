@@ -21,6 +21,8 @@
 @synthesize totalUsageField;
 @synthesize detailTableView;
 
+@synthesize usageModel;
+
 - (id)init
 {
     self = [super init];
@@ -55,13 +57,17 @@
     }
     usageDict = [data retain];
 
-    [self.totalUsageField setStringValue:[NSString stringWithFormat:@"%@ KB", [usageDict objectForKey:@"total"], nil]];
+    [self.usernameField setStringValue:[usageDict objectForKey:@"username"]];
+    [self.passwordField setStringValue:[usageDict objectForKey:@"password"]];
+    [self.fromDate setDateValue:[usageDict objectForKey:@"from"]];
+    [self.toDate setDateValue:[usageDict objectForKey:@"to"]];
 
     NSDateFormatter *formatter = [NSDateFormatter new];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [lastUpdateField setStringValue:[formatter stringFromDate:[NSDate date]]];
+    [lastUpdateField setStringValue:[formatter stringFromDate:[usageDict objectForKey:@"updated_at"]]];
 
+    [self.totalUsageField setStringValue:[NSString stringWithFormat:@"%@ KB", [usageDict objectForKey:@"total"], nil]];
     [detailTableView reloadData];
 }
 

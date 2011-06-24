@@ -17,13 +17,12 @@
     
     NSDate *from;
     NSDate *to;
-    NSDate *lastUpdated;
-    
-    int totalUsage;
     
     NSDateFormatter *dateFormatter;
     NSMutableData *receivedData;
     BLUsageController *controller;
+    
+    NSString *plistPath;
 }
 
 @property (retain, nonatomic) NSString *username;
@@ -31,12 +30,10 @@
 
 @property (retain, nonatomic) NSDate *from;
 @property (retain, nonatomic) NSDate *to;
-@property (retain, nonatomic) NSDate *lastUpdate;
-
-@property (readwrite) int totalUsage;
 
 - (id)initWithController:(BLUsageController *)ctrlr;
 
+- (BOOL)loadData;
 - (void)startUpdate;
 
 @end
