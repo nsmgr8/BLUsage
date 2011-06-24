@@ -19,12 +19,14 @@
 @synthesize lastUpdateField;
 
 @synthesize totalUsageField;
+@synthesize detailTableView;
 
 - (id)init
 {
     self = [super init];
     if (self) {
         usageModel = [[BLUsage alloc] initWithController:self];
+        usageDict = nil;
     }
     
     return self;
@@ -32,6 +34,9 @@
 
 - (void)dealloc
 {
+    if (usageDict) {
+        [usageDict release];
+    }
     [super dealloc];
 }
 
@@ -45,8 +50,27 @@
 }
 
 - (void)updateUI:(NSDictionary *)data {
-    NSLog(@"%@", data);
-    [self.totalUsageField setStringValue:[NSString stringWithFormat:@"%@ KB", [data objectForKey:@"total"], nil]];
+    if (usageDict) {
+        [usageDict release];
+    }
+    usageDict = [data retain];
+
+    [self.totalUsageField setStringValue:[NSString stringWithFormat:@"%@ KB", [usageDict objectForKey:@"total"], nil]];
+
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [lastUpdateField setStringValue:[formatter stringFromDate:[NSDate date]]];
+
+    [detailTableView reloadData];
+}
+
+- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
+    return [[usageDict objectForKey:@"detail"] count];
+}
+
+- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
+    return [[[usageDict objectForKey:@"detail"] objectAtIndex:rowIndex] objectForKey:[aTableColumn identifier]];
 }
 
 @end

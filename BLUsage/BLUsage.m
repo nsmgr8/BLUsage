@@ -92,6 +92,7 @@
     NSMutableArray *data = [NSMutableArray array];
     range.location = 2;
     range.length = 3;
+    NSArray *keys = [NSArray arrayWithObjects:@"Date", @"Time", @"Data", nil];
     for(NSXMLNode *tr in chunk_trs) {
         NSArray *elements = [tr nodesForXPath:@"./td" error:nil];
         NSArray *temp = [elements subarrayWithRange:range];
@@ -99,7 +100,7 @@
         for(NSXMLNode *n in temp) {
             [row addObject:[n stringValue]];
         }
-        [data addObject:row];
+        [data addObject:[NSDictionary dictionaryWithObjects:row forKeys:keys]];
     }
 
     NSString *total = [[[[trs lastObject] nodesForXPath:@"./td" error:nil] lastObject] stringValue];

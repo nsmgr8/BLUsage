@@ -1334,7 +1334,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{244, 268}, {398, 425}}</string>
 				<int key="NSWTFlags">1954021376</int>
-				<string key="NSWindowTitle">BLUsage</string>
+				<string key="NSWindowTitle">Bangla Lion Usage</string>
 				<string key="NSWindowClass">NSWindow</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{398, 5000}</string>
@@ -1626,6 +1626,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 											<object class="NSMutableArray" key="NSTableColumns">
 												<bool key="EncodedWithXMLCoder">YES</bool>
 												<object class="NSTableColumn" id="389684903">
+													<string key="NSIdentifier">Date</string>
 													<double key="NSWidth">101</double>
 													<double key="NSMinWidth">40</double>
 													<double key="NSMaxWidth">1000</double>
@@ -1660,10 +1661,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 													</object>
 													<int key="NSResizingMask">3</int>
 													<bool key="NSIsResizeable">YES</bool>
-													<bool key="NSIsEditable">YES</bool>
 													<reference key="NSTableView" ref="759020177"/>
 												</object>
 												<object class="NSTableColumn" id="181308813">
+													<string key="NSIdentifier">Time</string>
 													<double key="NSWidth">110</double>
 													<double key="NSMinWidth">40</double>
 													<double key="NSMaxWidth">1000</double>
@@ -1686,16 +1687,16 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 													</object>
 													<int key="NSResizingMask">3</int>
 													<bool key="NSIsResizeable">YES</bool>
-													<bool key="NSIsEditable">YES</bool>
 													<reference key="NSTableView" ref="759020177"/>
 												</object>
 												<object class="NSTableColumn" id="260558919">
+													<string key="NSIdentifier">Data</string>
 													<double key="NSWidth">136</double>
 													<double key="NSMinWidth">10</double>
 													<double key="NSMaxWidth">3.4028234663852886e+38</double>
 													<object class="NSTableHeaderCell" key="NSHeaderCell">
 														<int key="NSCellFlags">75628096</int>
-														<int key="NSCellFlags2">2048</int>
+														<int key="NSCellFlags2">67110912</int>
 														<string key="NSContents">Data (KB)</string>
 														<reference key="NSSupport" ref="26"/>
 														<object class="NSColor" key="NSBackgroundColor">
@@ -1708,7 +1709,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 													</object>
 													<object class="NSTextFieldCell" key="NSDataCell" id="47386306">
 														<int key="NSCellFlags">337772096</int>
-														<int key="NSCellFlags2">2048</int>
+														<int key="NSCellFlags2">67110912</int>
 														<string key="NSContents">Text Cell</string>
 														<reference key="NSSupport" ref="466616993"/>
 														<reference key="NSControlView" ref="759020177"/>
@@ -1717,7 +1718,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 													</object>
 													<int key="NSResizingMask">3</int>
 													<bool key="NSIsResizeable">YES</bool>
-													<bool key="NSIsEditable">YES</bool>
 													<reference key="NSTableView" ref="759020177"/>
 												</object>
 											</object>
@@ -2665,6 +2665,22 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					</object>
 					<int key="connectionID">580</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">dataSource</string>
+						<reference key="source" ref="759020177"/>
+						<reference key="destination" ref="854953297"/>
+					</object>
+					<int key="connectionID">581</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">detailTableView</string>
+						<reference key="source" ref="854953297"/>
+						<reference key="destination" ref="759020177"/>
+					</object>
+					<int key="connectionID">582</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3228,12 +3244,12 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<reference ref="432494442"/>
 							<reference ref="631446302"/>
 							<reference ref="860569211"/>
-							<reference ref="910052695"/>
 							<reference ref="541325390"/>
 							<reference ref="243080445"/>
 							<reference ref="790721651"/>
 							<reference ref="416691543"/>
 							<reference ref="253493995"/>
+							<reference ref="910052695"/>
 						</object>
 						<reference key="parent" ref="972006081"/>
 					</object>
@@ -4595,7 +4611,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">580</int>
+			<int key="maxID">584</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -4658,6 +4674,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>detailTableView</string>
 							<string>fromDate</string>
 							<string>lastUpdateField</string>
 							<string>passwordField</string>
@@ -4667,6 +4684,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>NSTableView</string>
 							<string>NSDatePicker</string>
 							<string>NSTextField</string>
 							<string>NSSecureTextField</string>
@@ -4679,6 +4697,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>detailTableView</string>
 							<string>fromDate</string>
 							<string>lastUpdateField</string>
 							<string>passwordField</string>
@@ -4688,6 +4707,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<object class="IBToOneOutletInfo">
+								<string key="name">detailTableView</string>
+								<string key="candidateClassName">NSTableView</string>
+							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">fromDate</string>
 								<string key="candidateClassName">NSDatePicker</string>
