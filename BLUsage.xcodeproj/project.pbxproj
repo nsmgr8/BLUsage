@@ -16,6 +16,7 @@
 		812E8FBE13B3EABF0086D28D /* BLUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FBD13B3EABF0086D28D /* BLUsage.m */; };
 		812E8FC213B3EB2B0086D28D /* BLUsageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FC113B3EB2B0086D28D /* BLUsageController.m */; };
 		812E8FFF13B41CED0086D28D /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */; };
+		81FF446313B4D30100286B4F /* blusage.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81FF446213B4D30100286B4F /* blusage.icns */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,6 +40,7 @@
 		812E8FFC13B41CD10086D28D /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
 		812E8FFD13B41CED0086D28D /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMStringEncoding.h; sourceTree = "<group>"; };
 		812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStringEncoding.m; sourceTree = "<group>"; };
+		81FF446213B4D30100286B4F /* blusage.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = blusage.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -108,6 +110,7 @@
 		812E8F9C13B3DB7E0086D28D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				81FF446213B4D30100286B4F /* blusage.icns */,
 				812E8F9D13B3DB7E0086D28D /* BLUsage-Info.plist */,
 				812E8F9E13B3DB7E0086D28D /* InfoPlist.strings */,
 				812E8FA113B3DB7E0086D28D /* BLUsage-Prefix.pch */,
@@ -180,6 +183,7 @@
 				812E8FA013B3DB7E0086D28D /* InfoPlist.strings in Resources */,
 				812E8FA613B3DB7E0086D28D /* Credits.rtf in Resources */,
 				812E8FAC13B3DB7E0086D28D /* MainMenu.xib in Resources */,
+				81FF446313B4D30100286B4F /* blusage.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
