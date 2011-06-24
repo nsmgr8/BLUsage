@@ -15,6 +15,7 @@
 		812E8FAC13B3DB7E0086D28D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 812E8FAA13B3DB7E0086D28D /* MainMenu.xib */; };
 		812E8FBE13B3EABF0086D28D /* BLUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FBD13B3EABF0086D28D /* BLUsage.m */; };
 		812E8FC213B3EB2B0086D28D /* BLUsageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FC113B3EB2B0086D28D /* BLUsageController.m */; };
+		812E8FFF13B41CED0086D28D /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,9 @@
 		812E8FBD13B3EABF0086D28D /* BLUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUsage.m; sourceTree = "<group>"; };
 		812E8FC013B3EB2B0086D28D /* BLUsageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUsageController.h; sourceTree = "<group>"; };
 		812E8FC113B3EB2B0086D28D /* BLUsageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUsageController.m; sourceTree = "<group>"; };
+		812E8FFC13B41CD10086D28D /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
+		812E8FFD13B41CED0086D28D /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMStringEncoding.h; sourceTree = "<group>"; };
+		812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStringEncoding.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +56,7 @@
 		812E8F8613B3DB7E0086D28D = {
 			isa = PBXGroup;
 			children = (
+				812E8FFA13B41CBA0086D28D /* GTM */,
 				812E8F9B13B3DB7E0086D28D /* BLUsage */,
 				812E8F9413B3DB7E0086D28D /* Frameworks */,
 				812E8F9213B3DB7E0086D28D /* Products */,
@@ -110,6 +115,16 @@
 				812E8FA413B3DB7E0086D28D /* Credits.rtf */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		812E8FFA13B41CBA0086D28D /* GTM */ = {
+			isa = PBXGroup;
+			children = (
+				812E8FFD13B41CED0086D28D /* GTMStringEncoding.h */,
+				812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */,
+				812E8FFC13B41CD10086D28D /* GTMDefines.h */,
+			);
+			name = GTM;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,6 +194,7 @@
 				812E8FA913B3DB7E0086D28D /* BLUsageAppDelegate.m in Sources */,
 				812E8FBE13B3EABF0086D28D /* BLUsage.m in Sources */,
 				812E8FC213B3EB2B0086D28D /* BLUsageController.m in Sources */,
+				812E8FFF13B41CED0086D28D /* GTMStringEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
