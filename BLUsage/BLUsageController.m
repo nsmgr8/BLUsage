@@ -20,6 +20,8 @@
 
 @synthesize totalUsageField;
 @synthesize detailTableView;
+@synthesize progressIndicator;
+@synthesize updateButton;
 
 @synthesize usageModel;
 
@@ -40,6 +42,16 @@
         [usageDict release];
     }
     [super dealloc];
+}
+
+- (void)startProgress {
+    [progressIndicator startAnimation:nil];
+    [updateButton setEnabled:NO];
+}
+
+- (void)stopProgress {
+    [progressIndicator stopAnimation:nil];
+    [updateButton setEnabled:YES];
 }
 
 - (IBAction)updateUsage:(id)sender {

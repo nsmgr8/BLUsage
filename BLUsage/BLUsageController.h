@@ -23,6 +23,8 @@
     
     NSTextField *totalUsageField;
     NSTableView *detailTableView;
+    NSProgressIndicator *progressIndicator;
+    NSButton *updateButton;
     
     BLUsage *usageModel;
     NSDictionary *usageDict;
@@ -37,11 +39,16 @@
 
 @property (assign) IBOutlet NSTextField *totalUsageField;
 @property (assign) IBOutlet NSTableView *detailTableView;
+@property (assign) IBOutlet NSProgressIndicator *progressIndicator;
+@property (assign) IBOutlet NSButton *updateButton;
 
 @property (readonly) BLUsage *usageModel;
 
 - (IBAction)updateUsage:(id)sender;
 
 - (void)updateUI:(NSDictionary *)data;
+
+- (void)startProgress;
+- (void)stopProgress;
 
 @end

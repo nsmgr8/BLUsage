@@ -77,12 +77,16 @@
     if(connection) {
         receivedData = [[NSMutableData data] retain];
         [connection start];
+        [controller startProgress];
     }
 }
 
 - (void)connection:(NSURLConnection *)connection didReceiveResponse:(NSURLResponse *)response {
     NSHTTPURLResponse *http_response = (NSHTTPURLResponse *)response;
-    NSLog(@"%ld", [http_response statusCode]);
+    if ([http_response statusCode] != 200) {
+        [connection cancel];
+        [controller stopProgress];
+    }
     [receivedData setLength:0];
 }
 
@@ -91,6 +95,7 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
+    [controller stopProgress];
     NSString *html = [NSString stringWithUTF8String:[receivedData bytes]];
     NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:html options:NSXMLDocumentTidyHTML error:nil];
     NSXMLNode *node = [[doc nodesForXPath:@"/html/body//table" error:nil] objectAtIndex:14];
@@ -124,6 +129,7 @@
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
+    [controller stopProgress];
     [connection release];
     [receivedData release];
     NSLog(@"%@", error);
