@@ -51,4 +51,6 @@
 - (void)startProgress;
 - (void)stopProgress;
 
+- (void)showMessage:(NSString *)msg;
+
 @end

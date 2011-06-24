@@ -91,4 +91,14 @@
     return [[[usageDict objectForKey:@"detail"] objectAtIndex:rowIndex] objectForKey:[aTableColumn identifier]];
 }
 
+- (void)showMessage:(NSString *)msg {
+    NSAlert *alert = [[[NSAlert alloc] init] autorelease];
+    [alert addButtonWithTitle:@"OK"];
+    [alert setInformativeText:msg];
+    [alert setAlertStyle:NSWarningAlertStyle];
+    
+    [alert beginSheetModalForWindow:[[NSApp delegate] window] modalDelegate:nil didEndSelector:nil contextInfo:nil];
+
+}
+
 @end

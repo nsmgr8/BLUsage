@@ -86,6 +86,7 @@
     if ([http_response statusCode] != 200) {
         [connection cancel];
         [controller stopProgress];
+        [controller showMessage:@"Cannot get data. Please check your credentials."];
     }
     [receivedData setLength:0];
 }
@@ -132,6 +133,7 @@
     [controller stopProgress];
     [connection release];
     [receivedData release];
+    [controller showMessage:[error localizedDescription]];
     NSLog(@"%@", error);
 }
 
