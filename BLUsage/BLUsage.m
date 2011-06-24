@@ -97,15 +97,28 @@
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
     [controller stopProgress];
+    
     NSString *html = [NSString stringWithUTF8String:[receivedData bytes]];
-    NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:html options:NSXMLDocumentTidyHTML error:nil];
+    NSError *error = nil;
+    NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:html options:NSXMLDocumentTidyHTML error:&error];
+    if (error) {
+        [controller showMessage:[error localizedDescription]];
+        return;
+    }
+    
+    // Find the table listing the usage data
     NSXMLNode *node = [[doc nodesForXPath:@"/html/body//table" error:nil] objectAtIndex:14];
+    // Get all the rows from the table
     NSArray *trs = [node nodesForXPath:@"./tr" error:nil];
+    // Ignore first (header) and last (total) row
     NSRange range = {1, [trs count] - 2};
     NSArray *chunk_trs = [trs subarrayWithRange:range];
+    
     NSMutableArray *data = [NSMutableArray array];
+    // We are only intersted in the last three columns
     range.location = 2;
     range.length = 3;
+    // Save them in an array of appropriates keyed-dictionaries
     NSArray *keys = [NSArray arrayWithObjects:@"Date", @"Time", @"Data", nil];
     for(NSXMLNode *tr in chunk_trs) {
         NSArray *elements = [tr nodesForXPath:@"./td" error:nil];
@@ -117,7 +130,10 @@
         [data addObject:[NSDictionary dictionaryWithObjects:row forKeys:keys]];
     }
 
+    // Get the total usage
     NSString *total = [[[[trs lastObject] nodesForXPath:@"./td" error:nil] lastObject] stringValue];
+
+    // Put all the information in a dictionary, so that it can be persisted in a single plist file
     NSDictionary *usage = [NSDictionary dictionaryWithObjectsAndKeys:data, @"detail",
                            total, @"total", [NSDate date], @"updated_at", self.username, @"username",
                            self.password, @"password", self.from, @"from", self.to, @"to", nil];
@@ -137,7 +153,7 @@
     NSLog(@"%@", error);
 }
 
-
+/** We need to accept the unknown-untrusted certificate for the HTTPS **/
 - (BOOL)connection:(NSURLConnection *)connection canAuthenticateAgainstProtectionSpace:(NSURLProtectionSpace *)protectionSpace {
     return [protectionSpace.authenticationMethod isEqualToString:NSURLAuthenticationMethodServerTrust];
 }
