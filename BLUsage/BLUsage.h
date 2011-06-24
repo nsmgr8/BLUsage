@@ -21,6 +21,7 @@
     int totalUsage;
     
     NSDateFormatter *dateFormatter;
+    NSMutableData *receivedData;
 }
 
 @property (retain, nonatomic) NSString *username;
@@ -31,5 +32,7 @@
 @property (retain, nonatomic) NSDate *lastUpdate;
 
 @property (readwrite) int totalUsage;
+
+- (void)startUpdate;
 
 @end

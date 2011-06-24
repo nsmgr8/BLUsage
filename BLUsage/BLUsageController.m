@@ -41,7 +41,7 @@
     usageModel.from = [self.fromDate dateValue];
     usageModel.to = [self.toDate dateValue];
     
-    NSLog(@"%@", usageModel);
+    [usageModel startUpdate];
 }
 
 @end
