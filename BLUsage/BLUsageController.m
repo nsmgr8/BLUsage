@@ -24,7 +24,7 @@
 {
     self = [super init];
     if (self) {
-        usageModel = [BLUsage new];
+        usageModel = [[BLUsage alloc] initWithController:self];
     }
     
     return self;
@@ -42,6 +42,11 @@
     usageModel.to = [self.toDate dateValue];
     
     [usageModel startUpdate];
+}
+
+- (void)updateUI:(NSDictionary *)data {
+    NSLog(@"%@", data);
+    [self.totalUsageField setStringValue:[NSString stringWithFormat:@"%@ KB", [data objectForKey:@"total"], nil]];
 }
 
 @end

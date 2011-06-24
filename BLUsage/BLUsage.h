@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
+@class BLUsageController;
 
 @interface BLUsage : NSObject {
 @private
@@ -22,6 +23,7 @@
     
     NSDateFormatter *dateFormatter;
     NSMutableData *receivedData;
+    BLUsageController *controller;
 }
 
 @property (retain, nonatomic) NSString *username;
@@ -32,6 +34,8 @@
 @property (retain, nonatomic) NSDate *lastUpdate;
 
 @property (readwrite) int totalUsage;
+
+- (id)initWithController:(BLUsageController *)ctrlr;
 
 - (void)startUpdate;
 

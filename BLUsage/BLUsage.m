@@ -7,6 +7,7 @@
 //
 
 #import "BLUsage.h"
+#import "BLUsageController.h"
 
 #import "GTMStringEncoding.h"
 
@@ -28,6 +29,14 @@
         dateFormatter = [NSDateFormatter new];
     }
     
+    return self;
+}
+
+- (id)initWithController:(BLUsageController *)ctrlr {
+    self = [self init];
+    if (self) {
+        controller = ctrlr;
+    }
     return self;
 }
 
@@ -74,8 +83,30 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    NSLog(@"%@", [NSString stringWithUTF8String:[receivedData bytes]]);
+    NSString *html = [NSString stringWithUTF8String:[receivedData bytes]];
+    NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:html options:NSXMLDocumentTidyHTML error:nil];
+    NSXMLNode *node = [[doc nodesForXPath:@"/html/body//table" error:nil] objectAtIndex:14];
+    NSArray *trs = [node nodesForXPath:@"./tr" error:nil];
+    NSRange range = {1, [trs count] - 2};
+    NSArray *chunk_trs = [trs subarrayWithRange:range];
+    NSMutableArray *data = [NSMutableArray array];
+    range.location = 2;
+    range.length = 3;
+    for(NSXMLNode *tr in chunk_trs) {
+        NSArray *elements = [tr nodesForXPath:@"./td" error:nil];
+        NSArray *temp = [elements subarrayWithRange:range];
+        NSMutableArray *row = [NSMutableArray array];
+        for(NSXMLNode *n in temp) {
+            [row addObject:[n stringValue]];
+        }
+        [data addObject:row];
+    }
 
+    NSString *total = [[[[trs lastObject] nodesForXPath:@"./td" error:nil] lastObject] stringValue];
+    NSDictionary *usage = [NSDictionary dictionaryWithObjectsAndKeys:data, @"detail", total, @"total", nil];
+
+    [controller updateUI:usage];
+    
     [connection release];
     [receivedData release];
 }

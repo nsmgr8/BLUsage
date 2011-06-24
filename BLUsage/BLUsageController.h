@@ -37,4 +37,6 @@
 
 - (IBAction)updateUsage:(id)sender;
 
+- (void)updateUI:(NSDictionary *)data;
+
 @end
