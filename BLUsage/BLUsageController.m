@@ -19,10 +19,8 @@
 @synthesize lastUpdateField;
 
 @synthesize totalUsageField;
-@synthesize detailTableView;
 @synthesize progressIndicator;
 @synthesize updateButton;
-@synthesize usageArrayController;
 
 @synthesize usageModel;
 
@@ -83,19 +81,10 @@
     [lastUpdateField setStringValue:[formatter stringFromDate:[usageDict objectForKey:@"updated_at"]]];
 
     [self.totalUsageField setStringValue:[NSString stringWithFormat:@"%@ KB", [usageDict objectForKey:@"total"], nil]];
-    [detailTableView reloadData];
-}
-
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)aTableView {
-    return [[usageDict objectForKey:@"detail"] count];
-}
-
-- (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
-    BLDetailUsage *detail = [[usageDict objectForKey:@"detail"] objectAtIndex:rowIndex];
-    if ([[aTableColumn identifier] isEqualToString:@"Data"]) {
-        return detail.usedData;
+    if (self.detailUsages) {
+        [self.detailUsages release];
     }
-    return detail.dateUsed;
+    self.detailUsages = [[NSMutableArray arrayWithArray:[usageDict objectForKey:@"detail"]] retain];
 }
 
 - (void)showMessage:(NSString *)msg {

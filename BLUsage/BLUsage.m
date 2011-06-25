@@ -25,7 +25,7 @@
     self = [super init];
     if (self) {
         dateFormatter = [NSDateFormatter new];
-        plistPath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.plist"] retain];
+        plistPath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.dat"] retain];
     }
     
     return self;

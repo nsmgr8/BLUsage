@@ -14,18 +14,8 @@
 @synthesize dateUsed;
 @synthesize usedData;
 
-- (id)init
-{
-    self = [super init];
-    if (self) {
-        // Initialization code here.
-    }
-    
-    return self;
-}
-
 - (id)initWithArray:(NSArray *)array {
-    self = [self init];
+    self = [super init];
     if (self) {
         NSString *date = [[array objectAtIndex:0] stringValue];
         NSString *time = [[array objectAtIndex:1] stringValue];

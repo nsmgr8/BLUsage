@@ -11,7 +11,7 @@
 #import "BLUsage.h"
 
 
-@interface BLUsageController : NSObject <NSTableViewDataSource> {
+@interface BLUsageController : NSObject {
 @private
     
     NSTextField *usernameField;
@@ -22,10 +22,8 @@
     NSTextField *lastUpdateField;
     
     NSTextField *totalUsageField;
-    NSTableView *detailTableView;
     NSProgressIndicator *progressIndicator;
     NSButton *updateButton;
-    NSArrayController *usageArrayController;
     
     BLUsage *usageModel;
     NSDictionary *usageDict;
@@ -41,10 +39,8 @@
 @property (assign) IBOutlet NSTextField *lastUpdateField;
 
 @property (assign) IBOutlet NSTextField *totalUsageField;
-@property (assign) IBOutlet NSTableView *detailTableView;
 @property (assign) IBOutlet NSProgressIndicator *progressIndicator;
 @property (assign) IBOutlet NSButton *updateButton;
-@property (assign) IBOutlet NSArrayController *usageArrayController;
 
 @property (readonly) BLUsage *usageModel;
 
