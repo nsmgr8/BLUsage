@@ -13,10 +13,14 @@
 @private
     NSDate *dateUsed;
     NSNumber *usedData;
+    
+    NSString *dayString;
 }
 
 @property (retain, nonatomic) NSDate *dateUsed;
 @property (retain, nonatomic) NSNumber *usedData;
+
+@property (retain, nonatomic) NSString *dayString;
 
 - (id)initWithArray:(NSArray *)array;
 

@@ -14,6 +14,8 @@
 @synthesize dateUsed;
 @synthesize usedData;
 
+@synthesize dayString;
+
 - (id)initWithArray:(NSArray *)array {
     self = [super init];
     if (self) {
@@ -52,6 +54,7 @@
         self.dateUsed = [gregorian dateFromComponents:components];
         
         self.usedData = [numFormatter numberFromString:data];
+        self.dayString = [date stringByReplacingOccurrencesOfString:@"/" withString:@""];
     }
     
     return self;

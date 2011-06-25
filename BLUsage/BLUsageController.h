@@ -21,7 +21,6 @@
     NSDatePicker *toDate;
     NSTextField *lastUpdateField;
     
-    NSTextField *totalUsageField;
     NSProgressIndicator *progressIndicator;
     NSButton *updateButton;
     
@@ -38,7 +37,6 @@
 @property (assign) IBOutlet NSDatePicker *toDate;
 @property (assign) IBOutlet NSTextField *lastUpdateField;
 
-@property (assign) IBOutlet NSTextField *totalUsageField;
 @property (assign) IBOutlet NSProgressIndicator *progressIndicator;
 @property (assign) IBOutlet NSButton *updateButton;
 

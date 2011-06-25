@@ -17,6 +17,7 @@
 		812E8FC213B3EB2B0086D28D /* BLUsageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FC113B3EB2B0086D28D /* BLUsageController.m */; };
 		812E8FFF13B41CED0086D28D /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */; };
 		813173D413B5D36600448838 /* BLDetailUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 813173D213B5D36600448838 /* BLDetailUsage.m */; };
+		8181C6AE13B622060006C26F /* BLDailyUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8181C6AC13B622060006C26F /* BLDailyUsage.m */; };
 		81FF446313B4D30100286B4F /* blusage.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81FF446213B4D30100286B4F /* blusage.icns */; };
 /* End PBXBuildFile section */
 
@@ -43,6 +44,8 @@
 		812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStringEncoding.m; sourceTree = "<group>"; };
 		813173D113B5D36600448838 /* BLDetailUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailUsage.h; sourceTree = "<group>"; };
 		813173D213B5D36600448838 /* BLDetailUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailUsage.m; sourceTree = "<group>"; };
+		8181C6AB13B622060006C26F /* BLDailyUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = BLDailyUsage.h; sourceTree = "<group>"; };
+		8181C6AC13B622060006C26F /* BLDailyUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDailyUsage.m; sourceTree = "<group>"; };
 		81FF446213B4D30100286B4F /* blusage.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = blusage.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -108,6 +111,8 @@
 				812E8FA813B3DB7E0086D28D /* BLUsageAppDelegate.m */,
 				812E8FAA13B3DB7E0086D28D /* MainMenu.xib */,
 				812E8F9C13B3DB7E0086D28D /* Supporting Files */,
+				8181C6AB13B622060006C26F /* BLDailyUsage.h */,
+				8181C6AC13B622060006C26F /* BLDailyUsage.m */,
 			);
 			path = BLUsage;
 			sourceTree = "<group>";
@@ -205,6 +210,7 @@
 				812E8FC213B3EB2B0086D28D /* BLUsageController.m in Sources */,
 				812E8FFF13B41CED0086D28D /* GTMStringEncoding.m in Sources */,
 				813173D413B5D36600448838 /* BLDetailUsage.m in Sources */,
+				8181C6AE13B622060006C26F /* BLDailyUsage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

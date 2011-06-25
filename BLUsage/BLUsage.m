@@ -9,6 +9,7 @@
 #import "BLUsage.h"
 #import "BLUsageController.h"
 #import "BLDetailUsage.h"
+#import "BLDailyUsage.h"
 
 #import "GTMStringEncoding.h"
 
@@ -103,7 +104,7 @@
     NSError *error = nil;
     NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:html options:NSXMLDocumentTidyHTML error:&error];
     if (error) {
-        NSLog(@"Parsing error code: %ld", [error code]);
+        NSLog(@"%@", [error localizedDescription]);
     }
     
     // Find the table listing the usage data
@@ -123,13 +124,25 @@
         NSArray *cols = [columns subarrayWithRange:range];
         [data addObject:[[[BLDetailUsage alloc] initWithArray:cols] autorelease]];
     }
-
-    // Get the total usage
-    NSString *total = [[[[trs lastObject] nodesForXPath:@"./td" error:nil] lastObject] stringValue];
+    
+    NSMutableArray *groupedData = [NSMutableArray array];
+    while ([data count]) {
+        BLDetailUsage *day = [data objectAtIndex:0];
+        NSPredicate *predicate = [NSPredicate predicateWithFormat:@"dayString = %@", day.dayString, nil];
+        NSArray *daily = [data filteredArrayUsingPredicate:predicate];
+        [groupedData addObject:daily];
+        [data removeObjectsInArray:daily];
+    }
+    
+    [data removeAllObjects];
+    for (NSArray *a in groupedData) {
+        BLDailyUsage *dailyUsage = [[BLDailyUsage alloc] initWithArray:a];
+        [data addObject:dailyUsage];
+    }
 
     // Put all the information in a dictionary, so that it can be persisted in a single plist file
     NSDictionary *usage = [NSDictionary dictionaryWithObjectsAndKeys:data, @"detail",
-                           total, @"total", [NSDate date], @"updated_at", self.username, @"username",
+                           [NSDate date], @"updated_at", self.username, @"username",
                            self.password, @"password", self.from, @"from", self.to, @"to", nil];
 
     [NSKeyedArchiver archiveRootObject:usage toFile:plistPath];

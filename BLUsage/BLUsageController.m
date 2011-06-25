@@ -18,7 +18,6 @@
 @synthesize toDate;
 @synthesize lastUpdateField;
 
-@synthesize totalUsageField;
 @synthesize progressIndicator;
 @synthesize updateButton;
 
@@ -80,7 +79,6 @@
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     [lastUpdateField setStringValue:[formatter stringFromDate:[usageDict objectForKey:@"updated_at"]]];
 
-    [self.totalUsageField setStringValue:[NSString stringWithFormat:@"%@ KB", [usageDict objectForKey:@"total"], nil]];
     if (self.detailUsages) {
         [self.detailUsages release];
     }
