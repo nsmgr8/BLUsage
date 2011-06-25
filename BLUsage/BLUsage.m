@@ -27,6 +27,7 @@
     self = [super init];
     if (self) {
         dateFormatter = [NSDateFormatter new];
+        [dateFormatter setDateFormat:@"dd/MM/YYYY"];
         plistPath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.dat"] retain];
     }
     
@@ -43,13 +44,19 @@
 
 - (void)dealloc
 {
+    [username release];
+    [password release];
+    [from release];
+    [to release];
+    [lastUpdate release];
+
     [dateFormatter release];
     [plistPath release];
+
     [super dealloc];
 }
 
 - (NSString*) description {
-    [dateFormatter setDateFormat:@"dd/MM/YYYY"];
     return [NSString stringWithFormat:@"%@ [%@, %@]", self.username, [dateFormatter stringFromDate:self.from], [dateFormatter stringFromDate:self.to], nil];
 }
 

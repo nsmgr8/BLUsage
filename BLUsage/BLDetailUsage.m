@@ -62,6 +62,10 @@
 
 - (void)dealloc
 {
+    [dateUsed release];
+    [usedData release];
+    [dayString release];
+    
     [super dealloc];
 }
 

@@ -29,8 +29,6 @@
 
 @property (retain) NSMutableArray *detailUsages;
 
-- (IBAction)updateUsage:(id)sender;
-
 - (void)updateUI:(NSDictionary *)data;
 
 - (void)startProgress;

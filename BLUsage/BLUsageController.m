@@ -30,6 +30,9 @@
 
 - (void)dealloc
 {
+    [usageModel release];
+    [detailUsages release];
+
     [super dealloc];
 }
 
@@ -41,10 +44,6 @@
 - (void)stopProgress {
     [progressIndicator stopAnimation:nil];
     [updateButton setEnabled:YES];
-}
-
-- (IBAction)updateUsage:(id)sender {
-    [usageModel startUpdate];
 }
 
 - (void)updateUI:(NSDictionary *)data {
@@ -59,7 +58,7 @@
     if (self.detailUsages) {
         [self.detailUsages release];
     }
-    self.detailUsages = [[NSMutableArray arrayWithArray:[data objectForKey:@"detail"]] retain];
+    self.detailUsages = [NSMutableArray arrayWithArray:[data objectForKey:@"detail"]];
 
     [data release];
 }

@@ -33,6 +33,7 @@
     [date release];
     [dataKB release];
     [timelyData release];
+
     [super dealloc];
 }
 
