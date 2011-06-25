@@ -25,9 +25,12 @@
     NSTableView *detailTableView;
     NSProgressIndicator *progressIndicator;
     NSButton *updateButton;
+    NSArrayController *usageArrayController;
     
     BLUsage *usageModel;
     NSDictionary *usageDict;
+
+    NSMutableArray *detailUsages;
 }
 
 @property (assign) IBOutlet NSTextField *usernameField;
@@ -41,8 +44,11 @@
 @property (assign) IBOutlet NSTableView *detailTableView;
 @property (assign) IBOutlet NSProgressIndicator *progressIndicator;
 @property (assign) IBOutlet NSButton *updateButton;
+@property (assign) IBOutlet NSArrayController *usageArrayController;
 
 @property (readonly) BLUsage *usageModel;
+
+@property (retain) NSMutableArray *detailUsages;
 
 - (IBAction)updateUsage:(id)sender;
 

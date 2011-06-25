@@ -22,8 +22,11 @@
 @synthesize detailTableView;
 @synthesize progressIndicator;
 @synthesize updateButton;
+@synthesize usageArrayController;
 
 @synthesize usageModel;
+
+@synthesize detailUsages;
 
 - (id)init
 {
