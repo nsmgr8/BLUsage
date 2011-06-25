@@ -102,7 +102,7 @@
     NSError *error = nil;
     NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:html options:NSXMLDocumentTidyHTML error:&error];
     if (error) {
-        [controller showMessage:[error localizedDescription]];
+        NSLog(@"%@", [error localizedDescription]);
         return;
     }
     
