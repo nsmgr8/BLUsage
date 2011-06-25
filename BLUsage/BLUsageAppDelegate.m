@@ -12,10 +12,12 @@
 
 @synthesize window;
 @synthesize controller;
+@synthesize accountWindow;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
     if ([self.controller.usageModel loadData] == NO) {
+        [self.accountWindow makeKeyAndOrderFront:nil];
         NSDate *today = [NSDate date];
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         NSDateComponents *monthComponents = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:today];

@@ -15,6 +15,7 @@
 
 @implementation BLUsage
 
+@synthesize accountName;
 @synthesize username;
 @synthesize password;
 
@@ -44,8 +45,10 @@
 
 - (void)dealloc
 {
+    [accountName release];
     [username release];
     [password release];
+
     [from release];
     [to release];
     [lastUpdate release];
@@ -151,7 +154,8 @@
     // Put all the information in a dictionary, so that it can be persisted in a single plist file
     NSDictionary *usage = [NSDictionary dictionaryWithObjectsAndKeys:data, @"detail",
                            [NSDate date], @"updated_at", self.username, @"username",
-                           self.password, @"password", self.from, @"from", self.to, @"to", nil];
+                           self.password, @"password", self.from, @"from", self.to, @"to",
+                           self.accountName, @"account", nil];
 
     [NSKeyedArchiver archiveRootObject:usage toFile:plistPath];
     [controller updateUI:usage];

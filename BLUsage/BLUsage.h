@@ -12,6 +12,7 @@
 
 @interface BLUsage : NSObject {
 @private
+    NSString *accountName;
     NSString *username;
     NSString *password;
     
@@ -26,6 +27,7 @@
     NSString *plistPath;
 }
 
+@property (retain, nonatomic) NSString *accountName;
 @property (retain, nonatomic) NSString *username;
 @property (retain, nonatomic) NSString *password;
 

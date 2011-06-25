@@ -49,6 +49,7 @@
 - (void)updateUI:(NSDictionary *)data {
     [data retain];
 
+    self.usageModel.accountName = [data objectForKey:@"account"];
     self.usageModel.username = [data objectForKey:@"username"];
     self.usageModel.password = [data objectForKey:@"password"];
     self.usageModel.from = [data objectForKey:@"from"];

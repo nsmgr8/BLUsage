@@ -13,10 +13,12 @@
 @interface BLUsageAppDelegate : NSObject <NSApplicationDelegate> {
 @private
     NSWindow *window;
+    NSPanel *accountWindow;
     BLUsageController *controller;
 }
 
 @property (assign) IBOutlet NSWindow *window;
+@property (assign) IBOutlet NSPanel *accountWindow;
 @property (assign) IBOutlet BLUsageController *controller;
 
 @end
