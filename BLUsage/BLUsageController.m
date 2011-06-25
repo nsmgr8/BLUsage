@@ -7,7 +7,7 @@
 //
 
 #import "BLUsageController.h"
-
+#import "BLDetailUsage.h"
 
 @implementation BLUsageController
 
@@ -88,7 +88,11 @@
 }
 
 - (id)tableView:(NSTableView *)aTableView objectValueForTableColumn:(NSTableColumn *)aTableColumn row:(NSInteger)rowIndex {
-    return [[[usageDict objectForKey:@"detail"] objectAtIndex:rowIndex] objectForKey:[aTableColumn identifier]];
+    BLDetailUsage *detail = [[usageDict objectForKey:@"detail"] objectAtIndex:rowIndex];
+    if ([[aTableColumn identifier] isEqualToString:@"Data"]) {
+        return detail.usedData;
+    }
+    return detail.dateUsed;
 }
 
 - (void)showMessage:(NSString *)msg {

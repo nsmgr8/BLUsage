@@ -8,6 +8,7 @@
 
 #import "BLUsage.h"
 #import "BLUsageController.h"
+#import "BLDetailUsage.h"
 
 #import "GTMStringEncoding.h"
 
@@ -51,7 +52,7 @@
 }
 
 - (BOOL)loadData {
-    NSDictionary *dict = [NSDictionary dictionaryWithContentsOfFile:plistPath];
+    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:plistPath];
     if (dict) {
         [controller updateUI:dict];
         return YES;
@@ -102,8 +103,7 @@
     NSError *error = nil;
     NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:html options:NSXMLDocumentTidyHTML error:&error];
     if (error) {
-        NSLog(@"%@", [error localizedDescription]);
-        return;
+        NSLog(@"Parsing error code: %ld", [error code]);
     }
     
     // Find the table listing the usage data
@@ -118,16 +118,10 @@
     // We are only intersted in the last three columns
     range.location = 2;
     range.length = 3;
-    // Save them in an array of appropriates keyed-dictionaries
-    NSArray *keys = [NSArray arrayWithObjects:@"Date", @"Time", @"Data", nil];
     for(NSXMLNode *tr in chunk_trs) {
-        NSArray *elements = [tr nodesForXPath:@"./td" error:nil];
-        NSArray *temp = [elements subarrayWithRange:range];
-        NSMutableArray *row = [NSMutableArray array];
-        for(NSXMLNode *n in temp) {
-            [row addObject:[n stringValue]];
-        }
-        [data addObject:[NSDictionary dictionaryWithObjects:row forKeys:keys]];
+        NSArray *columns = [tr nodesForXPath:@"./td" error:nil];
+        NSArray *cols = [columns subarrayWithRange:range];
+        [data addObject:[[[BLDetailUsage alloc] initWithArray:cols] autorelease]];
     }
 
     // Get the total usage
@@ -138,7 +132,7 @@
                            total, @"total", [NSDate date], @"updated_at", self.username, @"username",
                            self.password, @"password", self.from, @"from", self.to, @"to", nil];
 
-    [usage writeToFile:plistPath atomically:YES];    
+    [NSKeyedArchiver archiveRootObject:usage toFile:plistPath];
     [controller updateUI:usage];
     
     [connection release];
