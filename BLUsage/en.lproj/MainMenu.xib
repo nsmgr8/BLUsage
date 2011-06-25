@@ -830,9 +830,28 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 							<bool key="NSEnabled">YES</bool>
 							<object class="NSTextFieldCell" key="NSCell" id="484839484">
 								<int key="NSCellFlags">68288064</int>
-								<int key="NSCellFlags2">272630784</int>
+								<int key="NSCellFlags2">-1874852864</int>
 								<string key="NSContents">Never</string>
 								<reference key="NSSupport" ref="466616993"/>
+								<object class="NSDateFormatter" key="NSFormatter" id="730339275">
+									<object class="NSMutableDictionary" key="NS.attributes">
+										<bool key="EncodedWithXMLCoder">YES</bool>
+										<object class="NSArray" key="dict.sortedKeys">
+											<bool key="EncodedWithXMLCoder">YES</bool>
+											<string>dateStyle</string>
+											<string>formatterBehavior</string>
+											<string>timeStyle</string>
+										</object>
+										<object class="NSMutableArray" key="dict.values">
+											<bool key="EncodedWithXMLCoder">YES</bool>
+											<integer value="2"/>
+											<integer value="1040"/>
+											<integer value="1"/>
+										</object>
+									</object>
+									<string key="NS.format">d MMM yyyy HH:mm</string>
+									<bool key="NS.natural">NO</bool>
+								</object>
 								<reference key="NSControlView" ref="243080445"/>
 								<reference key="NSBackgroundColor" ref="716550980"/>
 								<reference key="NSTextColor" ref="473911871"/>
@@ -1058,46 +1077,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<int key="connectionID">532</int>
 				</object>
 				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">usernameField</string>
-						<reference key="source" ref="854953297"/>
-						<reference key="destination" ref="353161752"/>
-					</object>
-					<int key="connectionID">573</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">passwordField</string>
-						<reference key="source" ref="854953297"/>
-						<reference key="destination" ref="634715835"/>
-					</object>
-					<int key="connectionID">574</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">fromDate</string>
-						<reference key="source" ref="854953297"/>
-						<reference key="destination" ref="631446302"/>
-					</object>
-					<int key="connectionID">575</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">toDate</string>
-						<reference key="source" ref="854953297"/>
-						<reference key="destination" ref="860569211"/>
-					</object>
-					<int key="connectionID">576</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">lastUpdateField</string>
-						<reference key="source" ref="854953297"/>
-						<reference key="destination" ref="243080445"/>
-					</object>
-					<int key="connectionID">577</int>
-				</object>
-				<object class="IBConnectionRecord">
 					<object class="IBActionConnection" key="connection">
 						<string key="label">updateUsage:</string>
 						<reference key="source" ref="854953297"/>
@@ -1212,6 +1191,86 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						</object>
 					</object>
 					<int key="connectionID">613</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: self.usageModel.from</string>
+						<reference key="source" ref="631446302"/>
+						<reference key="destination" ref="854953297"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="631446302"/>
+							<reference key="NSDestination" ref="854953297"/>
+							<string key="NSLabel">value: self.usageModel.from</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">self.usageModel.from</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">625</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: self.usageModel.to</string>
+						<reference key="source" ref="860569211"/>
+						<reference key="destination" ref="854953297"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="860569211"/>
+							<reference key="NSDestination" ref="854953297"/>
+							<string key="NSLabel">value: self.usageModel.to</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">self.usageModel.to</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">628</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: self.usageModel.username</string>
+						<reference key="source" ref="353161752"/>
+						<reference key="destination" ref="854953297"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="353161752"/>
+							<reference key="NSDestination" ref="854953297"/>
+							<string key="NSLabel">value: self.usageModel.username</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">self.usageModel.username</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">630</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: self.usageModel.password</string>
+						<reference key="source" ref="634715835"/>
+						<reference key="destination" ref="854953297"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="634715835"/>
+							<reference key="NSDestination" ref="854953297"/>
+							<string key="NSLabel">value: self.usageModel.password</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">self.usageModel.password</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">638</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">value: self.usageModel.lastUpdate</string>
+						<reference key="source" ref="484839484"/>
+						<reference key="destination" ref="854953297"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="484839484"/>
+							<reference key="NSDestination" ref="854953297"/>
+							<string key="NSLabel">value: self.usageModel.lastUpdate</string>
+							<string key="NSBinding">value</string>
+							<string key="NSKeyPath">self.usageModel.lastUpdate</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">642</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1701,6 +1760,10 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<object class="IBObjectRecord">
 						<int key="objectID">565</int>
 						<reference key="object" ref="484839484"/>
+						<object class="NSMutableArray" key="children">
+							<bool key="EncodedWithXMLCoder">YES</bool>
+							<reference ref="730339275"/>
+						</object>
 						<reference key="parent" ref="243080445"/>
 					</object>
 					<object class="IBObjectRecord">
@@ -1770,6 +1833,11 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<int key="objectID">591</int>
 						<reference key="object" ref="120506937"/>
 						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">639</int>
+						<reference key="object" ref="730339275"/>
+						<reference key="parent" ref="484839484"/>
 					</object>
 				</object>
 			</object>
@@ -1876,6 +1944,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<string>589.IBPluginDependency</string>
 					<string>590.IBPluginDependency</string>
 					<string>591.IBPluginDependency</string>
+					<string>639.IBDateFormatterBehaviorMetadataKey</string>
+					<string>639.IBPluginDependency</string>
 					<string>73.IBPluginDependency</string>
 					<string>73.ImportedFromIB2</string>
 					<string>74.IBPluginDependency</string>
@@ -1994,6 +2064,8 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<integer value="1"/>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -2024,7 +2096,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">613</int>
+			<int key="maxID">642</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2087,66 +2159,31 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>fromDate</string>
-							<string>lastUpdateField</string>
-							<string>passwordField</string>
 							<string>progressIndicator</string>
-							<string>toDate</string>
 							<string>updateButton</string>
-							<string>usernameField</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSDatePicker</string>
-							<string>NSTextField</string>
-							<string>NSSecureTextField</string>
 							<string>NSProgressIndicator</string>
-							<string>NSDatePicker</string>
 							<string>NSButton</string>
-							<string>NSTextField</string>
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>fromDate</string>
-							<string>lastUpdateField</string>
-							<string>passwordField</string>
 							<string>progressIndicator</string>
-							<string>toDate</string>
 							<string>updateButton</string>
-							<string>usernameField</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">fromDate</string>
-								<string key="candidateClassName">NSDatePicker</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">lastUpdateField</string>
-								<string key="candidateClassName">NSTextField</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">passwordField</string>
-								<string key="candidateClassName">NSSecureTextField</string>
-							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">progressIndicator</string>
 								<string key="candidateClassName">NSProgressIndicator</string>
 							</object>
 							<object class="IBToOneOutletInfo">
-								<string key="name">toDate</string>
-								<string key="candidateClassName">NSDatePicker</string>
-							</object>
-							<object class="IBToOneOutletInfo">
 								<string key="name">updateButton</string>
 								<string key="candidateClassName">NSButton</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">usernameField</string>
-								<string key="candidateClassName">NSTextField</string>
 							</object>
 						</object>
 					</object>

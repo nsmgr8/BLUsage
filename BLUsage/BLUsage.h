@@ -17,6 +17,7 @@
     
     NSDate *from;
     NSDate *to;
+    NSDate *lastUpdate;
     
     NSDateFormatter *dateFormatter;
     NSMutableData *receivedData;
@@ -30,6 +31,7 @@
 
 @property (retain, nonatomic) NSDate *from;
 @property (retain, nonatomic) NSDate *to;
+@property (retain, nonatomic) NSDate *lastUpdate;
 
 - (id)initWithController:(BLUsageController *)ctrlr;
 

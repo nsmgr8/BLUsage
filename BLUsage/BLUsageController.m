@@ -11,13 +11,6 @@
 
 @implementation BLUsageController
 
-@synthesize usernameField;
-@synthesize passwordField;
-
-@synthesize fromDate;
-@synthesize toDate;
-@synthesize lastUpdateField;
-
 @synthesize progressIndicator;
 @synthesize updateButton;
 
@@ -30,7 +23,6 @@
     self = [super init];
     if (self) {
         usageModel = [[BLUsage alloc] initWithController:self];
-        usageDict = nil;
     }
     
     return self;
@@ -38,9 +30,6 @@
 
 - (void)dealloc
 {
-    if (usageDict) {
-        [usageDict release];
-    }
     [super dealloc];
 }
 
@@ -55,34 +44,24 @@
 }
 
 - (IBAction)updateUsage:(id)sender {
-    usageModel.username = self.usernameField.stringValue;
-    usageModel.password = self.passwordField.stringValue;
-    usageModel.from = [self.fromDate dateValue];
-    usageModel.to = [self.toDate dateValue];
-    
     [usageModel startUpdate];
 }
 
 - (void)updateUI:(NSDictionary *)data {
-    if (usageDict) {
-        [usageDict release];
-    }
-    usageDict = [data retain];
+    [data retain];
 
-    [self.usernameField setStringValue:[usageDict objectForKey:@"username"]];
-    [self.passwordField setStringValue:[usageDict objectForKey:@"password"]];
-    [self.fromDate setDateValue:[usageDict objectForKey:@"from"]];
-    [self.toDate setDateValue:[usageDict objectForKey:@"to"]];
-
-    NSDateFormatter *formatter = [NSDateFormatter new];
-    [formatter setDateStyle:NSDateFormatterMediumStyle];
-    [formatter setTimeStyle:NSDateFormatterShortStyle];
-    [lastUpdateField setStringValue:[formatter stringFromDate:[usageDict objectForKey:@"updated_at"]]];
+    self.usageModel.username = [data objectForKey:@"username"];
+    self.usageModel.password = [data objectForKey:@"password"];
+    self.usageModel.from = [data objectForKey:@"from"];
+    self.usageModel.to = [data objectForKey:@"to"];
+    self.usageModel.lastUpdate = [data objectForKey:@"updated_at"];
 
     if (self.detailUsages) {
         [self.detailUsages release];
     }
-    self.detailUsages = [[NSMutableArray arrayWithArray:[usageDict objectForKey:@"detail"]] retain];
+    self.detailUsages = [[NSMutableArray arrayWithArray:[data objectForKey:@"detail"]] retain];
+
+    [data release];
 }
 
 - (void)showMessage:(NSString *)msg {

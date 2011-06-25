@@ -20,6 +20,7 @@
 
 @synthesize from;
 @synthesize to;
+@synthesize lastUpdate;
 
 - (id)init
 {

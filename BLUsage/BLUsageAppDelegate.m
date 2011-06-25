@@ -21,10 +21,10 @@
         NSDateComponents *monthComponents = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:today];
 
         [monthComponents setDay:1];
-        [self.controller.fromDate setDateValue:[gregorian dateFromComponents:monthComponents]];
+        self.controller.usageModel.from = [gregorian dateFromComponents:monthComponents];
 
         [monthComponents setDay:30];
-        [self.controller.toDate setDateValue:[gregorian dateFromComponents:monthComponents]];
+        self.controller.usageModel.to = [gregorian dateFromComponents:monthComponents];
     }
 }
 

@@ -14,28 +14,13 @@
 @interface BLUsageController : NSObject {
 @private
     
-    NSTextField *usernameField;
-    NSSecureTextField *passwordField;
-
-    NSDatePicker *fromDate;
-    NSDatePicker *toDate;
-    NSTextField *lastUpdateField;
-    
     NSProgressIndicator *progressIndicator;
     NSButton *updateButton;
     
     BLUsage *usageModel;
-    NSDictionary *usageDict;
 
     NSMutableArray *detailUsages;
 }
-
-@property (assign) IBOutlet NSTextField *usernameField;
-@property (assign) IBOutlet NSSecureTextField *passwordField;
-
-@property (assign) IBOutlet NSDatePicker *fromDate;
-@property (assign) IBOutlet NSDatePicker *toDate;
-@property (assign) IBOutlet NSTextField *lastUpdateField;
 
 @property (assign) IBOutlet NSProgressIndicator *progressIndicator;
 @property (assign) IBOutlet NSButton *updateButton;
