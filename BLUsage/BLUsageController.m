@@ -84,7 +84,7 @@
         [[root mutableChildNodes] addObject:childNode];
     }
 
-    [detailView reloadData];
+    [self.detailView reloadData];
 }
 
 - (void)showMessage:(NSString *)msg {
