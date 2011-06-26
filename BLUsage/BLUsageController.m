@@ -72,6 +72,9 @@
     [data release];
     
     [self sendGrowl];
+
+    NSTimeInterval delay = 24 * 60 * 60;
+    [self.usageModel performSelector:@selector(startUpdate) withObject:nil afterDelay:delay];
 }
 
 - (void)sendGrowl {
@@ -82,16 +85,18 @@
     float totalMB = totalKB / 1024.0, totalGB = totalMB / 1024;
     
     NSDate *start = [[self.detailUsages objectAtIndex:0] date];
-    NSDateFormatter *f = [NSDateFormatter new];
-    [f setDateStyle:NSDateFormatterFullStyle];
+    NSDateFormatter *formatter = [NSDateFormatter new];
+    [formatter setDateStyle:NSDateFormatterFullStyle];
     
     NSString *desc = [NSString stringWithFormat:@"You have used\n"
                         "\t%0.2f GB or\n"
                         "\t%0.2f MB or\n"
                         "\t%.0f KB\n"
                         "since\n\t%@", totalGB, totalMB, (float)totalKB,
-                            [f stringFromDate:start]];
+                            [formatter stringFromDate:start]];
     
+    [formatter release];
+
     [GrowlApplicationBridge notifyWithTitle:@"Bangla Lion Usage"
                                 description:desc
                            notificationName:@"Usage"
