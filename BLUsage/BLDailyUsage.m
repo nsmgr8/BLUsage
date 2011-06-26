@@ -53,4 +53,10 @@
     return self;
 }
 
+- (NSString *)description {
+    NSDateFormatter *f = [NSDateFormatter new];
+    [f setDateStyle:NSDateFormatterShortStyle];
+    return [NSString stringWithFormat:@"%@ KB on %@", self.dataKB, [f stringFromDate:self.date]];
+}
+
 @end

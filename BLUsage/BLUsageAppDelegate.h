@@ -14,11 +14,13 @@
 @private
     NSWindow *window;
     NSPanel *accountWindow;
+    NSPanel *detailWindow;
     BLUsageController *controller;
 }
 
 @property (assign) IBOutlet NSWindow *window;
 @property (assign) IBOutlet NSPanel *accountWindow;
+@property (assign) IBOutlet NSPanel *detailWindow;
 @property (assign) IBOutlet BLUsageController *controller;
 
 @end

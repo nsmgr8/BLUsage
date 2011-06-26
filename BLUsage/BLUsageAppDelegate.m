@@ -12,6 +12,7 @@
 
 @synthesize window;
 @synthesize controller;
+@synthesize detailWindow;
 @synthesize accountWindow;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
