@@ -3,7 +3,7 @@ Bangla Lion Usage client
 
 :Author: M Nasimul Haque
 :Email: nasim.haque@gmail.com
-:Website: http://www.nasimulhaque.info
+:Website: http://www.nasim.me.uk
 
 A Mac OS X client for viewing Bangla Lion internet bandwidth usage right from
 your desktop.
