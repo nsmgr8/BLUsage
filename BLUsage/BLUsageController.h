@@ -34,6 +34,7 @@
 
 - (void)updateUI:(NSDictionary *)data;
 - (void)buildTree:(NSArray *)data;
+- (void)sendGrowl;
 
 - (void)startProgress;
 - (void)stopProgress;

@@ -16,11 +16,27 @@
 		812E8FAC13B3DB7E0086D28D /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 812E8FAA13B3DB7E0086D28D /* MainMenu.xib */; };
 		812E8FBE13B3EABF0086D28D /* BLUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FBD13B3EABF0086D28D /* BLUsage.m */; };
 		812E8FC213B3EB2B0086D28D /* BLUsageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FC113B3EB2B0086D28D /* BLUsageController.m */; };
-		812E8FFF13B41CED0086D28D /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */; };
 		813173D413B5D36600448838 /* BLDetailUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 813173D213B5D36600448838 /* BLDetailUsage.m */; };
 		8181C6AE13B622060006C26F /* BLDailyUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8181C6AC13B622060006C26F /* BLDailyUsage.m */; };
+		81CDF04313B7B0E800CCA173 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 81CDF03E13B7B07400CCA173 /* Growl Registration Ticket.growlRegDict */; };
+		81CDF05213B7B4D700CCA173 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81CDF05113B7B4D700CCA173 /* Growl.framework */; };
+		81CDF05313B7B4F500CCA173 /* Growl.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 81CDF05113B7B4D700CCA173 /* Growl.framework */; };
+		81CDF06113B7B5E500CCA173 /* GTMStringEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = 81CDF05E13B7B5E500CCA173 /* GTMStringEncoding.m */; };
 		81FF446313B4D30100286B4F /* blusage.icns in Resources */ = {isa = PBXBuildFile; fileRef = 81FF446213B4D30100286B4F /* blusage.icns */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		81CDF04613B7B20C00CCA173 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				81CDF05313B7B4F500CCA173 /* Growl.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		810D9ACA13B75269000D984B /* BLBTransformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = BLBTransformer.h; sourceTree = "<group>"; };
@@ -42,13 +58,19 @@
 		812E8FBD13B3EABF0086D28D /* BLUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUsage.m; sourceTree = "<group>"; };
 		812E8FC013B3EB2B0086D28D /* BLUsageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLUsageController.h; sourceTree = "<group>"; };
 		812E8FC113B3EB2B0086D28D /* BLUsageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUsageController.m; sourceTree = "<group>"; };
-		812E8FFC13B41CD10086D28D /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMDefines.h; sourceTree = "<group>"; };
-		812E8FFD13B41CED0086D28D /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GTMStringEncoding.h; sourceTree = "<group>"; };
-		812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GTMStringEncoding.m; sourceTree = "<group>"; };
 		813173D113B5D36600448838 /* BLDetailUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailUsage.h; sourceTree = "<group>"; };
 		813173D213B5D36600448838 /* BLDetailUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailUsage.m; sourceTree = "<group>"; };
 		8181C6AB13B622060006C26F /* BLDailyUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = BLDailyUsage.h; sourceTree = "<group>"; };
 		8181C6AC13B622060006C26F /* BLDailyUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDailyUsage.m; sourceTree = "<group>"; };
+		81CDF03E13B7B07400CCA173 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = SOURCE_ROOT; };
+		81CDF05113B7B4D700CCA173 /* Growl.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Growl.framework; path = ../Growl.framework; sourceTree = "<group>"; };
+		81CDF05413B7B5D900CCA173 /* Growl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = Growl.h; path = Growl/Growl.h; sourceTree = SOURCE_ROOT; };
+		81CDF05513B7B5D900CCA173 /* GrowlApplicationBridge-Carbon.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = "GrowlApplicationBridge-Carbon.h"; path = "Growl/GrowlApplicationBridge-Carbon.h"; sourceTree = SOURCE_ROOT; };
+		81CDF05613B7B5D900CCA173 /* GrowlApplicationBridge.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = GrowlApplicationBridge.h; path = Growl/GrowlApplicationBridge.h; sourceTree = SOURCE_ROOT; };
+		81CDF05713B7B5D900CCA173 /* GrowlDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = GrowlDefines.h; path = Growl/GrowlDefines.h; sourceTree = SOURCE_ROOT; };
+		81CDF05C13B7B5E500CCA173 /* GTMDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = GTMDefines.h; path = GTM/GTMDefines.h; sourceTree = "<group>"; };
+		81CDF05D13B7B5E500CCA173 /* GTMStringEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; name = GTMStringEncoding.h; path = GTM/GTMStringEncoding.h; sourceTree = "<group>"; };
+		81CDF05E13B7B5E500CCA173 /* GTMStringEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GTMStringEncoding.m; path = GTM/GTMStringEncoding.m; sourceTree = "<group>"; };
 		81FF446213B4D30100286B4F /* blusage.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; path = blusage.icns; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -57,6 +79,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				81CDF05213B7B4D700CCA173 /* Growl.framework in Frameworks */,
 				812E8F9613B3DB7E0086D28D /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -67,6 +90,7 @@
 		812E8F8613B3DB7E0086D28D = {
 			isa = PBXGroup;
 			children = (
+				81CDF04813B7B2C800CCA173 /* Growl */,
 				812E8FFA13B41CBA0086D28D /* GTM */,
 				812E8F9B13B3DB7E0086D28D /* BLUsage */,
 				812E8F9413B3DB7E0086D28D /* Frameworks */,
@@ -85,6 +109,7 @@
 		812E8F9413B3DB7E0086D28D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				81CDF05113B7B4D700CCA173 /* Growl.framework */,
 				812E8F9513B3DB7E0086D28D /* Cocoa.framework */,
 				812E8F9713B3DB7E0086D28D /* Other Frameworks */,
 			);
@@ -125,6 +150,7 @@
 		812E8F9C13B3DB7E0086D28D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				81CDF03E13B7B07400CCA173 /* Growl Registration Ticket.growlRegDict */,
 				81FF446213B4D30100286B4F /* blusage.icns */,
 				812E8F9D13B3DB7E0086D28D /* BLUsage-Info.plist */,
 				812E8F9E13B3DB7E0086D28D /* InfoPlist.strings */,
@@ -138,11 +164,23 @@
 		812E8FFA13B41CBA0086D28D /* GTM */ = {
 			isa = PBXGroup;
 			children = (
-				812E8FFD13B41CED0086D28D /* GTMStringEncoding.h */,
-				812E8FFE13B41CED0086D28D /* GTMStringEncoding.m */,
-				812E8FFC13B41CD10086D28D /* GTMDefines.h */,
+				81CDF05C13B7B5E500CCA173 /* GTMDefines.h */,
+				81CDF05D13B7B5E500CCA173 /* GTMStringEncoding.h */,
+				81CDF05E13B7B5E500CCA173 /* GTMStringEncoding.m */,
 			);
 			name = GTM;
+			sourceTree = "<group>";
+		};
+		81CDF04813B7B2C800CCA173 /* Growl */ = {
+			isa = PBXGroup;
+			children = (
+				81CDF05413B7B5D900CCA173 /* Growl.h */,
+				81CDF05513B7B5D900CCA173 /* GrowlApplicationBridge-Carbon.h */,
+				81CDF05613B7B5D900CCA173 /* GrowlApplicationBridge.h */,
+				81CDF05713B7B5D900CCA173 /* GrowlDefines.h */,
+			);
+			name = Growl;
+			path = Headers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -155,6 +193,7 @@
 				812E8F8D13B3DB7E0086D28D /* Sources */,
 				812E8F8E13B3DB7E0086D28D /* Frameworks */,
 				812E8F8F13B3DB7E0086D28D /* Resources */,
+				81CDF04613B7B20C00CCA173 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -198,6 +237,7 @@
 				812E8FA013B3DB7E0086D28D /* InfoPlist.strings in Resources */,
 				812E8FA613B3DB7E0086D28D /* Credits.rtf in Resources */,
 				812E8FAC13B3DB7E0086D28D /* MainMenu.xib in Resources */,
+				81CDF04313B7B0E800CCA173 /* Growl Registration Ticket.growlRegDict in Resources */,
 				81FF446313B4D30100286B4F /* blusage.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -213,10 +253,10 @@
 				812E8FA913B3DB7E0086D28D /* BLUsageAppDelegate.m in Sources */,
 				812E8FBE13B3EABF0086D28D /* BLUsage.m in Sources */,
 				812E8FC213B3EB2B0086D28D /* BLUsageController.m in Sources */,
-				812E8FFF13B41CED0086D28D /* GTMStringEncoding.m in Sources */,
 				813173D413B5D36600448838 /* BLDetailUsage.m in Sources */,
 				8181C6AE13B622060006C26F /* BLDailyUsage.m in Sources */,
 				810D9ACD13B7526A000D984B /* BLBTransformer.m in Sources */,
+				81CDF06113B7B5E500CCA173 /* GTMStringEncoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +327,10 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -303,6 +347,10 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)/..\"",
+				);
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "BLUsage/BLUsage-Prefix.pch";

@@ -10,6 +10,8 @@
 #import "BLDetailUsage.h"
 #import "BLDailyUsage.h"
 
+#import "GrowlApplicationBridge.h"
+
 @implementation BLUsageController
 
 @synthesize progressIndicator;
@@ -26,6 +28,7 @@
     if (self) {
         usageModel = [[BLUsage alloc] initWithController:self];
         root = nil;
+        [GrowlApplicationBridge setGrowlDelegate:nil];
     }
     
     return self;
@@ -67,6 +70,35 @@
     [self buildTree:[data objectForKey:@"detail"]];
 
     [data release];
+    
+    [self sendGrowl];
+}
+
+- (void)sendGrowl {
+    NSInteger totalKB = 0;
+    for (BLDailyUsage *d in self.detailUsages) {
+        totalKB += [d.dataKB integerValue];
+    }
+    float totalMB = totalKB / 1024.0, totalGB = totalMB / 1024;
+    
+    NSDate *start = [[self.detailUsages objectAtIndex:0] date];
+    NSDateFormatter *f = [NSDateFormatter new];
+    [f setDateStyle:NSDateFormatterFullStyle];
+    
+    NSString *desc = [NSString stringWithFormat:@"You have used\n"
+                        "\t%0.2f GB or\n"
+                        "\t%0.2f MB or\n"
+                        "\t%.0f KB\n"
+                        "since\n\t%@", totalGB, totalMB, (float)totalKB,
+                            [f stringFromDate:start]];
+    
+    [GrowlApplicationBridge notifyWithTitle:@"Bangla Lion Usage"
+                                description:desc
+                           notificationName:@"Usage"
+                                   iconData:nil
+                                   priority:0
+                                   isSticky:NO
+                               clickContext:nil];
 }
 
 - (void)buildTree:(NSArray *)data {
