@@ -147,8 +147,7 @@
     
     [data removeAllObjects];
     for (NSArray *a in groupedData) {
-        BLDailyUsage *dailyUsage = [[BLDailyUsage alloc] initWithArray:a];
-        [data addObject:dailyUsage];
+        [data addObject:[[[BLDailyUsage alloc] initWithArray:a] autorelease]];
     }
 
     // Put all the information in a dictionary, so that it can be persisted in a single plist file
@@ -160,6 +159,8 @@
     [NSKeyedArchiver archiveRootObject:usage toFile:plistPath];
     [controller updateUI:usage];
     
+    [doc release];
+
     [connection release];
     [receivedData release];
 }

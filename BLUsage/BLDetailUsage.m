@@ -52,9 +52,13 @@
         
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
         self.dateUsed = [gregorian dateFromComponents:components];
+        [gregorian release];
         
         self.usedData = [numFormatter numberFromString:data];
         self.dayString = [date stringByReplacingOccurrencesOfString:@"/" withString:@""];
+
+        [numFormatter release];
+        [components release];
     }
     
     return self;
@@ -70,7 +74,7 @@
 }
 
 - (NSString *)description {
-    NSDateFormatter *formatter = [NSDateFormatter new];
+    NSDateFormatter *formatter = [[NSDateFormatter new] autorelease];
     [formatter setDateStyle:NSDateFormatterMediumStyle];
     [formatter setTimeStyle:NSDateFormatterShortStyle];
     return [NSString stringWithFormat:@"%@ KB on %@", self.usedData, [formatter stringFromDate:self.dateUsed], nil];
@@ -84,8 +88,8 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        self.dateUsed = [[aDecoder decodeObjectForKey:@"dateUsed"] retain];
-        self.usedData = [[aDecoder decodeObjectForKey:@"usedData"] retain];
+        self.dateUsed = [aDecoder decodeObjectForKey:@"dateUsed"];
+        self.usedData = [aDecoder decodeObjectForKey:@"usedData"];
     }
     return self;
 }

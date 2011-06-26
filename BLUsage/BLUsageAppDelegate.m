@@ -28,6 +28,7 @@
 
         [monthComponents setDay:30];
         self.controller.usageModel.to = [gregorian dateFromComponents:monthComponents];
+        [gregorian release];
     }
 }
 

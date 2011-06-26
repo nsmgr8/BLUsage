@@ -125,10 +125,7 @@
 }
 
 - (BOOL)outlineView:(NSOutlineView *)outlineView isItemExpandable:(id)item {
-    if ([[item representedObject] isKindOfClass:[BLDetailUsage class]]) {
-        return NO;
-    }
-    return YES;
+    return ![[item representedObject] isKindOfClass:[BLDetailUsage class]];
 }
 
 - (NSInteger)outlineView:(NSOutlineView *)outlineView numberOfChildrenOfItem:(id)item {
@@ -137,10 +134,11 @@
 
 - (id)outlineView:(NSOutlineView *)outlineView objectValueForTableColumn:(NSTableColumn *)tableColumn byItem:(id)item {
     id itemrepr = [item representedObject];
+    BOOL isDetail = [itemrepr isKindOfClass:[BLDetailUsage class]];
 
     if ([[tableColumn identifier] isEqualToString:@"date"]) {
-        NSDateFormatter *f = [NSDateFormatter new];
-        if ([itemrepr isKindOfClass:[BLDetailUsage class]]) {
+        NSDateFormatter *f = [[NSDateFormatter new] autorelease];
+        if (isDetail) {
             [f setTimeStyle:NSDateFormatterShortStyle];
             return [f stringFromDate:[(BLDetailUsage *)itemrepr dateUsed]];
         }
@@ -150,7 +148,7 @@
         }
     }
     else {
-        if ([itemrepr isKindOfClass:[BLDetailUsage class]]) {
+        if (isDetail) {
             return [(BLDetailUsage *)itemrepr usedData];
         }
         else {

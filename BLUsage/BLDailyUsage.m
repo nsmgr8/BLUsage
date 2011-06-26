@@ -24,6 +24,7 @@
         NSDateComponents *dayComponents = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:[(BLDetailUsage *)[array objectAtIndex:0] dateUsed]];
         self.date = [gregorian dateFromComponents:dayComponents];
         self.dataKB = [array valueForKeyPath:@"@sum.usedData"];
+        [gregorian release];
     }
     return self;
 }
@@ -46,15 +47,15 @@
 - (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super init];
     if (self) {
-        self.date = [[aDecoder decodeObjectForKey:@"date"] retain];
-        self.dataKB = [[aDecoder decodeObjectForKey:@"data"] retain];
-        self.timelyData = [[aDecoder decodeObjectForKey:@"timelyData"] retain];
+        self.date = [aDecoder decodeObjectForKey:@"date"];
+        self.dataKB = [aDecoder decodeObjectForKey:@"data"];
+        self.timelyData = [aDecoder decodeObjectForKey:@"timelyData"];
     }
     return self;
 }
 
 - (NSString *)description {
-    NSDateFormatter *f = [NSDateFormatter new];
+    NSDateFormatter *f = [[NSDateFormatter new] autorelease];
     [f setDateStyle:NSDateFormatterShortStyle];
     return [NSString stringWithFormat:@"%@ KB on %@", self.dataKB, [f stringFromDate:self.date]];
 }
