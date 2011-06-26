@@ -21,4 +21,4 @@ The source code is licenced under MIT licence. Please hack it to your liking.
 Screenshot
 ----------
 
-.. image:: http://www.flickr.com/photos/mnasimh/5871663581/
+.. image:: http://farm6.static.flickr.com/5311/5871663581_af04b0b638.jpg
