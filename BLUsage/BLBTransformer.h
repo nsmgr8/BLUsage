@@ -14,3 +14,15 @@
 }
 
 @end
+
+@interface BLGBTransformer : NSValueTransformer {
+    
+}
+
+@end
+
+@interface BLBTransformer : NSValueTransformer {
+    
+}
+
+@end
