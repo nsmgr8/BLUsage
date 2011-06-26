@@ -23,6 +23,9 @@
 @synthesize to;
 @synthesize lastUpdate;
 
+@synthesize autoUpdate;
+@synthesize interval;
+
 - (id)init
 {
     self = [super init];
@@ -30,6 +33,9 @@
         dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"dd/MM/YYYY"];
         plistPath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.dat"] retain];
+
+        self.autoUpdate = YES;
+        self.interval = 2;
     }
     
     return self;
@@ -154,7 +160,9 @@
     NSDictionary *usage = [NSDictionary dictionaryWithObjectsAndKeys:data, @"detail",
                            [NSDate date], @"updated_at", self.username, @"username",
                            self.password, @"password", self.from, @"from", self.to, @"to",
-                           self.accountName, @"account", nil];
+                           self.accountName, @"account",
+                           [NSNumber numberWithBool:self.autoUpdate], @"autoupdate",
+                           [NSNumber numberWithInteger:self.interval], @"interval", nil];
 
     [NSKeyedArchiver archiveRootObject:usage toFile:plistPath];
     [controller updateUI:usage];

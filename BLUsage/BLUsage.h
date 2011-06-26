@@ -20,6 +20,9 @@
     NSDate *to;
     NSDate *lastUpdate;
     
+    BOOL autoUpdate;
+    NSInteger interval;
+    
     NSDateFormatter *dateFormatter;
     NSMutableData *receivedData;
     BLUsageController *controller;
@@ -34,6 +37,9 @@
 @property (retain, nonatomic) NSDate *from;
 @property (retain, nonatomic) NSDate *to;
 @property (retain, nonatomic) NSDate *lastUpdate;
+
+@property (assign, nonatomic) BOOL autoUpdate;
+@property (assign, nonatomic) NSInteger interval;
 
 - (id)initWithController:(BLUsageController *)ctrlr;
 

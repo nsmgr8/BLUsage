@@ -62,6 +62,8 @@
     self.usageModel.from = [data objectForKey:@"from"];
     self.usageModel.to = [data objectForKey:@"to"];
     self.usageModel.lastUpdate = [data objectForKey:@"updated_at"];
+    self.usageModel.autoUpdate = [[data objectForKey:@"autoupdate"] boolValue];
+    self.usageModel.interval = [[data objectForKey:@"interval"] integerValue];
 
     if (self.detailUsages) {
         [self.detailUsages release];
@@ -73,8 +75,9 @@
     
     [self sendGrowl];
 
-    NSTimeInterval delay = 24 * 60 * 60;
-    [self.usageModel performSelector:@selector(startUpdate) withObject:nil afterDelay:delay];
+    if (self.usageModel.autoUpdate && self.usageModel.interval > 0) {
+        [self.usageModel performSelector:@selector(startUpdate) withObject:nil afterDelay:self.usageModel.interval];
+    }
 }
 
 - (void)sendGrowl {
