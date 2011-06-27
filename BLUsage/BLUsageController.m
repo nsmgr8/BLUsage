@@ -67,7 +67,7 @@
     [self sendGrowl];
 
     if (self.usageModel.autoUpdate && self.usageModel.interval > 0) {
-        [self.usageModel performSelector:@selector(startUpdate) withObject:nil afterDelay:self.usageModel.interval * 60 * 60 * 24];
+        [self.usageModel performSelector:@selector(startUpdate) withObject:nil afterDelay:self.usageModel.interval * 60 * 60];
     }
 }
 
