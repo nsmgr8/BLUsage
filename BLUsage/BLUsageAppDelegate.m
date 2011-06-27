@@ -7,6 +7,8 @@
 //
 
 #import "BLUsageAppDelegate.h"
+#import "BLUsageController.h"
+#import "BLUsage.h"
 
 @implementation BLUsageAppDelegate
 

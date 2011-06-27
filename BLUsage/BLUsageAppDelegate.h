@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "BLUsageController.h"
+@class BLUsageController;
 
 @interface BLUsageAppDelegate : NSObject <NSApplicationDelegate> {
 @private

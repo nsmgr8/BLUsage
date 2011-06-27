@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-#import "BLUsage.h"
-
+@class BLUsage;
 
 @interface BLUsageController : NSObject <NSOutlineViewDataSource> {
 @private

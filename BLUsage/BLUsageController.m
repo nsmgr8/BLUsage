@@ -9,6 +9,7 @@
 #import "BLUsageController.h"
 #import "BLDetailUsage.h"
 #import "BLDailyUsage.h"
+#import "BLUsage.h"
 
 #import "GrowlApplicationBridge.h"
 
