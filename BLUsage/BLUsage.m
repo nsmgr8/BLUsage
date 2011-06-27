@@ -175,6 +175,10 @@
     [controller stopProgress];
     
     NSString *html = [NSString stringWithUTF8String:[receivedData bytes]];
+    if (!html) {
+        [controller showMessage:@"Couldn't get any data. Please try again later."];
+        return;
+    }
     NSError *error = nil;
     NSXMLDocument *doc = [[NSXMLDocument alloc] initWithXMLString:html options:NSXMLDocumentTidyHTML error:&error];
     if (error) {
