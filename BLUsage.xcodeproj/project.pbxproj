@@ -17,6 +17,7 @@
 		812E8FBE13B3EABF0086D28D /* BLUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FBD13B3EABF0086D28D /* BLUsage.m */; };
 		812E8FC213B3EB2B0086D28D /* BLUsageController.m in Sources */ = {isa = PBXBuildFile; fileRef = 812E8FC113B3EB2B0086D28D /* BLUsageController.m */; };
 		813173D413B5D36600448838 /* BLDetailUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 813173D213B5D36600448838 /* BLDetailUsage.m */; };
+		8142786713B94D310069F7A9 /* README.rst in Resources */ = {isa = PBXBuildFile; fileRef = 8142786613B94D310069F7A9 /* README.rst */; };
 		8181C6AE13B622060006C26F /* BLDailyUsage.m in Sources */ = {isa = PBXBuildFile; fileRef = 8181C6AC13B622060006C26F /* BLDailyUsage.m */; };
 		81CDF04313B7B0E800CCA173 /* Growl Registration Ticket.growlRegDict in Resources */ = {isa = PBXBuildFile; fileRef = 81CDF03E13B7B07400CCA173 /* Growl Registration Ticket.growlRegDict */; };
 		81CDF05213B7B4D700CCA173 /* Growl.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 81CDF05113B7B4D700CCA173 /* Growl.framework */; };
@@ -60,6 +61,7 @@
 		812E8FC113B3EB2B0086D28D /* BLUsageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLUsageController.m; sourceTree = "<group>"; };
 		813173D113B5D36600448838 /* BLDetailUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BLDetailUsage.h; sourceTree = "<group>"; };
 		813173D213B5D36600448838 /* BLDetailUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDetailUsage.m; sourceTree = "<group>"; };
+		8142786613B94D310069F7A9 /* README.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.rst; path = ../README.rst; sourceTree = "<group>"; };
 		8181C6AB13B622060006C26F /* BLDailyUsage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.objj.h; path = BLDailyUsage.h; sourceTree = "<group>"; };
 		8181C6AC13B622060006C26F /* BLDailyUsage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BLDailyUsage.m; sourceTree = "<group>"; };
 		81CDF03E13B7B07400CCA173 /* Growl Registration Ticket.growlRegDict */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = "Growl Registration Ticket.growlRegDict"; sourceTree = SOURCE_ROOT; };
@@ -157,6 +159,7 @@
 				812E8FA113B3DB7E0086D28D /* BLUsage-Prefix.pch */,
 				812E8FA213B3DB7E0086D28D /* main.m */,
 				812E8FA413B3DB7E0086D28D /* Credits.rtf */,
+				8142786613B94D310069F7A9 /* README.rst */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -239,6 +242,7 @@
 				812E8FAC13B3DB7E0086D28D /* MainMenu.xib in Resources */,
 				81CDF04313B7B0E800CCA173 /* Growl Registration Ticket.growlRegDict in Resources */,
 				81FF446313B4D30100286B4F /* blusage.icns in Resources */,
+				8142786713B94D310069F7A9 /* README.rst in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
