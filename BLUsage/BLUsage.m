@@ -26,19 +26,69 @@
 @synthesize autoUpdate;
 @synthesize interval;
 
+@synthesize detailUsages;
+
 - (id)init
 {
     self = [super init];
     if (self) {
+        self.username = nil;
+        
         dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"dd/MM/YYYY"];
-        archivePath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.dat"] retain];
 
         self.autoUpdate = YES;
         self.interval = 2;
+
+        NSDate *today = [NSDate date];
+        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
+        NSDateComponents *monthComponents = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:today];
+        
+        [monthComponents setDay:1];
+        self.from = [gregorian dateFromComponents:monthComponents];
+        
+        [monthComponents setDay:30];
+        self.to = [gregorian dateFromComponents:monthComponents];
+        [gregorian release];
     }
     
     return self;
+}
+
+- (id)initWithCoder:(NSCoder *)aDecoder {
+    self = [super init];
+    
+    if (self) {
+        self.accountName = [aDecoder decodeObjectForKey:@"account"];
+        self.username = [aDecoder decodeObjectForKey:@"username"];
+        self.password = [aDecoder decodeObjectForKey:@"password"];
+
+        self.from = [aDecoder decodeObjectForKey:@"from"];
+        self.to = [aDecoder decodeObjectForKey:@"to"];
+        self.lastUpdate = [aDecoder decodeObjectForKey:@"lastupdate"];
+        
+        self.detailUsages = [aDecoder decodeObjectForKey:@"detail"];
+        
+        self.autoUpdate = [[aDecoder decodeObjectForKey:@"autoupdate"] boolValue];
+        self.interval = [[aDecoder decodeObjectForKey:@"interval"] integerValue];
+    }
+    
+    return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)aCoder {
+    [aCoder encodeObject:self.accountName forKey:@"account"];
+    [aCoder encodeObject:self.username forKey:@"username"];
+    [aCoder encodeObject:self.password forKey:@"password"];
+
+    [aCoder encodeObject:self.from forKey:@"from"];
+    [aCoder encodeObject:self.to forKey:@"to"];
+    [aCoder encodeObject:self.lastUpdate forKey:@"lastupdate"];
+
+    [aCoder encodeObject:self.detailUsages forKey:@"detail"];
+    
+    [aCoder encodeObject:[NSNumber numberWithBool:self.autoUpdate] forKey:@"autoupdate"];
+    [aCoder encodeObject:[NSNumber numberWithInteger:self.interval] forKey:@"interval"];
 }
 
 - (id)initWithController:(BLUsageController *)ctrlr {
@@ -59,23 +109,30 @@
     [to release];
     [lastUpdate release];
 
+    [detailUsages release];
+
     [dateFormatter release];
-    [archivePath release];
 
     [super dealloc];
 }
 
-- (NSString*) description {
-    return [NSString stringWithFormat:@"%@ [%@, %@]", self.username, [dateFormatter stringFromDate:self.from], [dateFormatter stringFromDate:self.to], nil];
+- (void)copyContent:(BLUsage *)anOther {
+    self.accountName = anOther.accountName;
+    self.username = anOther.username;
+    self.password = anOther.password;
+    
+    self.from = anOther.from;
+    self.to = anOther.to;
+    self.lastUpdate = anOther.lastUpdate;
+    
+    self.detailUsages = anOther.detailUsages;
+    
+    self.autoUpdate = anOther.autoUpdate;
+    self.interval = anOther.interval;
 }
 
-- (BOOL)loadData {
-    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
-    if (dict) {
-        [controller updateUI:dict];
-        return YES;
-    }
-    return NO;
+- (NSString*) description {
+    return [NSString stringWithFormat:@"%@ [%@, %@]", self.username, [dateFormatter stringFromDate:self.from], [dateFormatter stringFromDate:self.to], nil];
 }
 
 - (void)startUpdate {
@@ -156,19 +213,16 @@
         [data addObject:[[[BLDailyUsage alloc] initWithArray:a] autorelease]];
     }
 
-    // Put all the information in a dictionary, so that it can be persisted in a single plist file
-    NSDictionary *usage = [NSDictionary dictionaryWithObjectsAndKeys:data, @"detail",
-                           [NSDate date], @"updated_at", self.username, @"username",
-                           self.password, @"password", self.from, @"from", self.to, @"to",
-                           self.accountName, @"account",
-                           [NSNumber numberWithBool:self.autoUpdate], @"autoupdate",
-                           [NSNumber numberWithInteger:self.interval], @"interval", nil];
+    if (self.detailUsages) {
+        [self.detailUsages release];
+    }
+    self.detailUsages = data;
 
-    [NSKeyedArchiver archiveRootObject:usage toFile:archivePath];
-    [controller updateUI:usage];
-    
+    self.lastUpdate = [NSDate date];
+
+    [controller updateUI];
+
     [doc release];
-
     [connection release];
     [receivedData release];
 }

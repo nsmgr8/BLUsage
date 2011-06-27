@@ -17,19 +17,10 @@
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
-    if ([self.controller.usageModel loadData] == NO) {
+    if (self.controller.usageModel.username == nil) {
         [self.accountWindow makeKeyAndOrderFront:nil];
-        NSDate *today = [NSDate date];
-        NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
-        NSDateComponents *monthComponents = [gregorian components:(NSDayCalendarUnit | NSMonthCalendarUnit | NSYearCalendarUnit) fromDate:today];
-
-        [monthComponents setDay:1];
-        self.controller.usageModel.from = [gregorian dateFromComponents:monthComponents];
-
-        [monthComponents setDay:30];
-        self.controller.usageModel.to = [gregorian dateFromComponents:monthComponents];
-        [gregorian release];
     }
+    [self.controller buildTree];
 }
 
 - (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)theApplication {

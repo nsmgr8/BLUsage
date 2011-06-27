@@ -10,24 +10,24 @@
 
 @class BLUsageController;
 
-@interface BLUsage : NSObject {
+@interface BLUsage : NSObject <NSCoding> {
 @private
     NSString *accountName;
     NSString *username;
     NSString *password;
-    
+
     NSDate *from;
     NSDate *to;
     NSDate *lastUpdate;
-    
+
     BOOL autoUpdate;
     NSInteger interval;
-    
+
+    NSMutableArray *detailUsages;
+
     NSDateFormatter *dateFormatter;
     NSMutableData *receivedData;
     BLUsageController *controller;
-    
-    NSString *archivePath;
 }
 
 @property (retain, nonatomic) NSString *accountName;
@@ -41,9 +41,12 @@
 @property (assign, nonatomic) BOOL autoUpdate;
 @property (assign, nonatomic) NSInteger interval;
 
+@property (retain) NSMutableArray *detailUsages;
+
 - (id)initWithController:(BLUsageController *)ctrlr;
 
-- (BOOL)loadData;
+- (void)copyContent:(BLUsage *)anOther;
+
 - (void)startUpdate;
 
 @end

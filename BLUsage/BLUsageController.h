@@ -20,8 +20,8 @@
     
     BLUsage *usageModel;
 
-    NSMutableArray *detailUsages;
     NSTreeNode *root;
+    NSString *archivePath;
 }
 
 @property (assign) IBOutlet NSProgressIndicator *progressIndicator;
@@ -30,10 +30,8 @@
 
 @property (readonly) BLUsage *usageModel;
 
-@property (retain) NSMutableArray *detailUsages;
-
-- (void)updateUI:(NSDictionary *)data;
-- (void)buildTree:(NSArray *)data;
+- (void)updateUI;
+- (void)buildTree;
 - (void)sendGrowl;
 
 - (void)startProgress;

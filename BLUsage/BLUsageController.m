@@ -20,13 +20,18 @@
 
 @synthesize usageModel;
 
-@synthesize detailUsages;
-
 - (id)init
 {
     self = [super init];
     if (self) {
+        archivePath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.archive"] retain];
+        
         usageModel = [[BLUsage alloc] initWithController:self];
+        BLUsage *model = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
+        if (model) {
+            [usageModel copyContent:model];
+        }
+
         root = nil;
         [GrowlApplicationBridge setGrowlDelegate:nil];
     }
@@ -37,9 +42,10 @@
 - (void)dealloc
 {
     [usageModel release];
-    [detailUsages release];
 
     [root release];
+    [archivePath release];
+
     [super dealloc];
 }
 
@@ -53,41 +59,25 @@
     [updateButton setEnabled:YES];
 }
 
-- (void)updateUI:(NSDictionary *)data {
-    [data retain];
+- (void)updateUI {
+    [NSKeyedArchiver archiveRootObject:self.usageModel toFile:archivePath];
+    [self buildTree];
 
-    self.usageModel.accountName = [data objectForKey:@"account"];
-    self.usageModel.username = [data objectForKey:@"username"];
-    self.usageModel.password = [data objectForKey:@"password"];
-    self.usageModel.from = [data objectForKey:@"from"];
-    self.usageModel.to = [data objectForKey:@"to"];
-    self.usageModel.lastUpdate = [data objectForKey:@"updated_at"];
-    self.usageModel.autoUpdate = [[data objectForKey:@"autoupdate"] boolValue];
-    self.usageModel.interval = [[data objectForKey:@"interval"] integerValue];
-
-    if (self.detailUsages) {
-        [self.detailUsages release];
-    }
-    self.detailUsages = [data objectForKey:@"detail"];
-    [self buildTree:[data objectForKey:@"detail"]];
-
-    [data release];
-    
     [self sendGrowl];
 
     if (self.usageModel.autoUpdate && self.usageModel.interval > 0) {
-        [self.usageModel performSelector:@selector(startUpdate) withObject:nil afterDelay:self.usageModel.interval];
+        [self.usageModel performSelector:@selector(startUpdate) withObject:nil afterDelay:self.usageModel.interval * 60 * 60 * 24];
     }
 }
 
 - (void)sendGrowl {
     NSInteger totalKB = 0;
-    for (BLDailyUsage *d in self.detailUsages) {
+    for (BLDailyUsage *d in self.usageModel.detailUsages) {
         totalKB += [d.dataKB integerValue];
     }
     float totalMB = totalKB / 1024.0, totalGB = totalMB / 1024;
     
-    NSDate *start = [[self.detailUsages objectAtIndex:0] date];
+    NSDate *start = [[self.usageModel.detailUsages objectAtIndex:0] date];
     NSDateFormatter *formatter = [NSDateFormatter new];
     [formatter setDateStyle:NSDateFormatterFullStyle];
     
@@ -109,13 +99,13 @@
                                clickContext:nil];
 }
 
-- (void)buildTree:(NSArray *)data {
+- (void)buildTree {
     if (root) {
         [root release];
         root = nil;
     }
     root = [[NSTreeNode treeNodeWithRepresentedObject:@"root"] retain];
-    for (BLDailyUsage *daily in data) {
+    for (BLDailyUsage *daily in self.usageModel.detailUsages) {
         NSTreeNode *childNode = [NSTreeNode treeNodeWithRepresentedObject:daily];
         for (BLDetailUsage *detail in daily.timelyData) {
             NSTreeNode *timeChild = [NSTreeNode treeNodeWithRepresentedObject:detail];
