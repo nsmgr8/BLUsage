@@ -32,7 +32,7 @@
     if (self) {
         dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"dd/MM/YYYY"];
-        plistPath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.dat"] retain];
+        archivePath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.dat"] retain];
 
         self.autoUpdate = YES;
         self.interval = 2;
@@ -60,7 +60,7 @@
     [lastUpdate release];
 
     [dateFormatter release];
-    [plistPath release];
+    [archivePath release];
 
     [super dealloc];
 }
@@ -70,7 +70,7 @@
 }
 
 - (BOOL)loadData {
-    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:plistPath];
+    NSDictionary *dict = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
     if (dict) {
         [controller updateUI:dict];
         return YES;
@@ -164,7 +164,7 @@
                            [NSNumber numberWithBool:self.autoUpdate], @"autoupdate",
                            [NSNumber numberWithInteger:self.interval], @"interval", nil];
 
-    [NSKeyedArchiver archiveRootObject:usage toFile:plistPath];
+    [NSKeyedArchiver archiveRootObject:usage toFile:archivePath];
     [controller updateUI:usage];
     
     [doc release];

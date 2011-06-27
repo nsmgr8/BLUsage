@@ -27,7 +27,7 @@
     NSMutableData *receivedData;
     BLUsageController *controller;
     
-    NSString *plistPath;
+    NSString *archivePath;
 }
 
 @property (retain, nonatomic) NSString *accountName;
