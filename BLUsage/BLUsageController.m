@@ -23,6 +23,8 @@
 {
     self = [super init];
     if (self) {
+        scheduled = NO;
+
         archivePath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.archive"] retain];
         
         usageModel = [BLUsage new];
@@ -66,9 +68,15 @@
 
     [self sendGrowl];
 
-    if (self.usageModel.autoUpdate && self.usageModel.interval > 0) {
-        [self.usageModel performSelector:@selector(startUpdate) withObject:nil afterDelay:self.usageModel.interval * 60 * 60];
+    if (self.usageModel.autoUpdate && self.usageModel.interval > 0 && !scheduled) {
+        scheduled = YES;
+        [self performSelector:@selector(fetchScheduled) withObject:nil afterDelay:self.usageModel.interval * 10];
     }
+}
+
+- (void)fetchScheduled {
+    scheduled = NO;
+    [self.usageModel startUpdate];
 }
 
 - (void)sendGrowl {
