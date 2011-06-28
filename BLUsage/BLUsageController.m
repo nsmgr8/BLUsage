@@ -15,8 +15,6 @@
 
 @implementation BLUsageController
 
-@synthesize progressIndicator;
-@synthesize updateButton;
 @synthesize detailView;
 
 @synthesize usageModel;
@@ -27,12 +25,15 @@
     if (self) {
         archivePath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.archive"] retain];
         
-        usageModel = [[BLUsage alloc] initWithController:self];
+        usageModel = [BLUsage new];
         BLUsage *model = [NSKeyedUnarchiver unarchiveObjectWithFile:archivePath];
         if (model) {
             [usageModel copyContent:model];
         }
 
+        [usageModel addObserver:self forKeyPath:@"detailUsages" options:0 context:NULL];
+        [usageModel addObserver:self forKeyPath:@"errorMessage" options:NSKeyValueObservingOptionNew context:NULL];
+        
         root = nil;
         [GrowlApplicationBridge setGrowlDelegate:nil];
     }
@@ -50,14 +51,13 @@
     [super dealloc];
 }
 
-- (void)startProgress {
-    [progressIndicator startAnimation:nil];
-    [updateButton setEnabled:NO];
-}
-
-- (void)stopProgress {
-    [progressIndicator stopAnimation:nil];
-    [updateButton setEnabled:YES];
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"detailUsages"]) {
+        [self updateUI];
+    }
+    else if ([keyPath isEqualToString:@"errorMessage"]) {
+        [self showMessage:[change objectForKey:NSKeyValueChangeNewKey]];
+    }
 }
 
 - (void)updateUI {

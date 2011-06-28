@@ -1983,22 +1983,6 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">progressIndicator</string>
-						<reference key="source" ref="854953297"/>
-						<reference key="destination" ref="264354047"/>
-					</object>
-					<int key="connectionID">587</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
-						<string key="label">updateButton</string>
-						<reference key="source" ref="854953297"/>
-						<reference key="destination" ref="253493995"/>
-					</object>
-					<int key="connectionID">588</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">content</string>
 						<reference key="source" ref="707024311"/>
 						<reference key="destination" ref="854953297"/>
@@ -2531,6 +2515,42 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						</object>
 					</object>
 					<int key="connectionID">811</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">animate: self.usageModel.fetching</string>
+						<reference key="source" ref="264354047"/>
+						<reference key="destination" ref="854953297"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="264354047"/>
+							<reference key="NSDestination" ref="854953297"/>
+							<string key="NSLabel">animate: self.usageModel.fetching</string>
+							<string key="NSBinding">animate</string>
+							<string key="NSKeyPath">self.usageModel.fetching</string>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">813</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBBindingConnection" key="connection">
+						<string key="label">enabled: self.usageModel.fetching</string>
+						<reference key="source" ref="253493995"/>
+						<reference key="destination" ref="854953297"/>
+						<object class="NSNibBindingConnector" key="connector">
+							<reference key="NSSource" ref="253493995"/>
+							<reference key="NSDestination" ref="854953297"/>
+							<string key="NSLabel">enabled: self.usageModel.fetching</string>
+							<string key="NSBinding">enabled</string>
+							<string key="NSKeyPath">self.usageModel.fetching</string>
+							<object class="NSDictionary" key="NSOptions">
+								<string key="NS.key.0">NSValueTransformerName</string>
+								<string key="NS.object.0">NSNegateBoolean</string>
+							</object>
+							<int key="NSNibBindingConnectorVersion">2</int>
+						</object>
+					</object>
+					<int key="connectionID">816</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3851,7 +3871,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 				<reference key="dict.values" ref="0"/>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">811</int>
+			<int key="maxID">816</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3925,42 +3945,14 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA</b
 						</object>
 					</object>
 					<object class="NSMutableDictionary" key="outlets">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>detailView</string>
-							<string>progressIndicator</string>
-							<string>updateButton</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>NSOutlineView</string>
-							<string>NSProgressIndicator</string>
-							<string>NSButton</string>
-						</object>
+						<string key="NS.key.0">detailView</string>
+						<string key="NS.object.0">NSOutlineView</string>
 					</object>
 					<object class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<bool key="EncodedWithXMLCoder">YES</bool>
-						<object class="NSArray" key="dict.sortedKeys">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<string>detailView</string>
-							<string>progressIndicator</string>
-							<string>updateButton</string>
-						</object>
-						<object class="NSMutableArray" key="dict.values">
-							<bool key="EncodedWithXMLCoder">YES</bool>
-							<object class="IBToOneOutletInfo">
-								<string key="name">detailView</string>
-								<string key="candidateClassName">NSOutlineView</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">progressIndicator</string>
-								<string key="candidateClassName">NSProgressIndicator</string>
-							</object>
-							<object class="IBToOneOutletInfo">
-								<string key="name">updateButton</string>
-								<string key="candidateClassName">NSButton</string>
-							</object>
+						<string key="NS.key.0">detailView</string>
+						<object class="IBToOneOutletInfo" key="NS.object.0">
+							<string key="name">detailView</string>
+							<string key="candidateClassName">NSOutlineView</string>
 						</object>
 					</object>
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">

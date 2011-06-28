@@ -13,8 +13,6 @@
 @interface BLUsageController : NSObject <NSOutlineViewDataSource> {
 @private
     
-    NSProgressIndicator *progressIndicator;
-    NSButton *updateButton;
     NSOutlineView *detailView;
     
     BLUsage *usageModel;
@@ -23,8 +21,6 @@
     NSString *archivePath;
 }
 
-@property (assign) IBOutlet NSProgressIndicator *progressIndicator;
-@property (assign) IBOutlet NSButton *updateButton;
 @property (assign) IBOutlet NSOutlineView *detailView;
 
 @property (readonly) BLUsage *usageModel;
@@ -32,9 +28,6 @@
 - (void)updateUI;
 - (void)buildTree;
 - (void)sendGrowl;
-
-- (void)startProgress;
-- (void)stopProgress;
 
 - (void)showMessage:(NSString *)msg;
 - (IBAction)expandAll:(id)sender;

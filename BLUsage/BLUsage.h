@@ -8,8 +8,6 @@
 
 #import <Foundation/Foundation.h>
 
-@class BLUsageController;
-
 @interface BLUsage : NSObject <NSCoding> {
 @private
     NSString *accountName;
@@ -27,7 +25,9 @@
 
     NSDateFormatter *dateFormatter;
     NSMutableData *receivedData;
-    BLUsageController *controller;
+
+    BOOL fetching;
+    NSString *errorMessage;
 }
 
 @property (retain, nonatomic) NSString *accountName;
@@ -43,7 +43,8 @@
 
 @property (retain) NSMutableArray *detailUsages;
 
-- (id)initWithController:(BLUsageController *)ctrlr;
+@property (assign, getter = isFetching) BOOL fetching;
+@property (assign, nonatomic) NSString *errorMessage;
 
 - (void)copyContent:(BLUsage *)anOther;
 

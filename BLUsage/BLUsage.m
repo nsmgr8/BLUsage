@@ -7,7 +7,6 @@
 //
 
 #import "BLUsage.h"
-#import "BLUsageController.h"
 #import "BLDetailUsage.h"
 #import "BLDailyUsage.h"
 
@@ -28,11 +27,15 @@
 
 @synthesize detailUsages;
 
+@synthesize fetching;
+@synthesize errorMessage;
+
 - (id)init
 {
     self = [super init];
     if (self) {
         self.username = nil;
+        self.fetching = NO;
         
         dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"dd/MM/YYYY"];
@@ -91,14 +94,6 @@
     [aCoder encodeObject:[NSNumber numberWithInteger:self.interval] forKey:@"interval"];
 }
 
-- (id)initWithController:(BLUsageController *)ctrlr {
-    self = [self init];
-    if (self) {
-        controller = ctrlr;
-    }
-    return self;
-}
-
 - (void)dealloc
 {
     [accountName release];
@@ -153,7 +148,7 @@
     if(connection) {
         receivedData = [[NSMutableData data] retain];
         [connection start];
-        [controller startProgress];
+        self.fetching = YES;
     }
 }
 
@@ -161,8 +156,8 @@
     NSHTTPURLResponse *http_response = (NSHTTPURLResponse *)response;
     if ([http_response statusCode] != 200) {
         [connection cancel];
-        [controller stopProgress];
-        [controller showMessage:@"Cannot get data. Please check your credentials."];
+        self.fetching = NO;
+        self.errorMessage = @"Cannot get data. Please check your credentials.";
     }
     [receivedData setLength:0];
 }
@@ -172,11 +167,11 @@
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection {
-    [controller stopProgress];
+    self.fetching = NO;
     
     NSString *html = [NSString stringWithUTF8String:[receivedData bytes]];
     if (!html) {
-        [controller showMessage:@"Couldn't get any data. Please try again later."];
+        self.errorMessage = @"Couldn't get any data. Please try again later.";
         return;
     }
     NSError *error = nil;
@@ -224,18 +219,16 @@
 
     self.lastUpdate = [NSDate date];
 
-    [controller updateUI];
-
     [doc release];
     [connection release];
     [receivedData release];
 }
 
 - (void)connection:(NSURLConnection *)connection didFailWithError:(NSError *)error {
-    [controller stopProgress];
+    self.fetching = NO;
     [connection release];
     [receivedData release];
-    [controller showMessage:[error localizedDescription]];
+    self.errorMessage = [error localizedDescription];
     NSLog(@"%@", error);
 }
 
