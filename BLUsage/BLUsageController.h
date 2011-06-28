@@ -14,6 +14,7 @@
 @private
     
     NSOutlineView *detailView;
+    NSDrawer *detailDrawer;
     
     BLUsage *usageModel;
 
@@ -24,6 +25,7 @@
 }
 
 @property (assign) IBOutlet NSOutlineView *detailView;
+@property (assign) IBOutlet NSDrawer *detailDrawer;
 
 @property (readonly) BLUsage *usageModel;
 
@@ -33,6 +35,8 @@
 - (void)fetchScheduled;
 
 - (void)showMessage:(NSString *)msg;
+
+- (IBAction)toggleDetail:(id)sender;
 - (IBAction)expandAll:(id)sender;
 
 @end

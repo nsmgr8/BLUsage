@@ -14,11 +14,13 @@
 
 @synthesize window;
 @synthesize controller;
-@synthesize detailWindow;
 @synthesize accountWindow;
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
+    [self.controller.detailDrawer setMinContentSize:NSMakeSize(340, 400)];
+    [self.controller.detailDrawer setMaxContentSize:NSMakeSize(340, 40000)];
+
     if (self.controller.usageModel.username == nil) {
         [self.accountWindow makeKeyAndOrderFront:nil];
     }

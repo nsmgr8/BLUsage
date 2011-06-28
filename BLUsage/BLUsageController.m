@@ -16,6 +16,7 @@
 @implementation BLUsageController
 
 @synthesize detailView;
+@synthesize detailDrawer;
 
 @synthesize usageModel;
 
@@ -70,7 +71,7 @@
 
     if (self.usageModel.autoUpdate && self.usageModel.interval > 0 && !scheduled) {
         scheduled = YES;
-        [self performSelector:@selector(fetchScheduled) withObject:nil afterDelay:self.usageModel.interval * 10];
+        [self performSelector:@selector(fetchScheduled) withObject:nil afterDelay:self.usageModel.interval * 3600];
     }
 }
 
@@ -134,6 +135,15 @@
     
     [alert beginSheetModalForWindow:[[NSApp delegate] window] modalDelegate:nil didEndSelector:nil contextInfo:nil];
 
+}
+
+- (IBAction)toggleDetail:(id)sender {
+    NSDrawerState state = [detailDrawer state];
+    if (NSDrawerOpeningState == state || NSDrawerOpenState == state) {
+        [detailDrawer close];
+    } else {
+        [detailDrawer openOnEdge:NSMaxXEdge];
+    }
 }
 
 - (IBAction)expandAll:(id)sender {
