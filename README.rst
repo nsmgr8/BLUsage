@@ -1,4 +1,4 @@
-Bangla Lion Usage client
+Bangla Lion Usage Viewer
 ========================
 
 :Author: M Nasimul Haque
@@ -21,4 +21,4 @@ The source code is licenced under MIT licence. Please hack it to your liking.
 Screenshot
 ----------
 
-.. image:: http://farm6.static.flickr.com/5269/5879165012_33d220250c.jpg
+.. image:: http://farm6.static.flickr.com/5278/5894373983_964c223730.jpg
