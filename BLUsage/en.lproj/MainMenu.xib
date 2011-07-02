@@ -949,7 +949,7 @@
 						</object>
 						<object class="NSProgressIndicator" id="264354047">
 							<reference key="NSNextResponder" ref="439893737"/>
-							<int key="NSvFlags">1292</int>
+							<int key="NSvFlags">1313</int>
 							<object class="NSPSMatrix" key="NSDrawMatrix"/>
 							<string key="NSFrame">{{231, 44}, {231, 20}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
@@ -987,7 +987,7 @@
 						</object>
 						<object class="NSTextField" id="1058596826">
 							<reference key="NSNextResponder" ref="439893737"/>
-							<int key="NSvFlags">288</int>
+							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{17, 47}, {82, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
@@ -1005,7 +1005,7 @@
 						</object>
 						<object class="NSTextField" id="802634141">
 							<reference key="NSNextResponder" ref="439893737"/>
-							<int key="NSvFlags">288</int>
+							<int key="NSvFlags">292</int>
 							<string key="NSFrame">{{101, 47}, {127, 17}}</string>
 							<reference key="NSSuperview" ref="439893737"/>
 							<reference key="NSWindow"/>
