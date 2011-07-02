@@ -20,6 +20,8 @@
 
     BOOL autoUpdate;
     NSInteger interval;
+    NSInteger capacity;
+    NSString *remaining;
 
     NSMutableArray *detailUsages;
 
@@ -40,6 +42,8 @@
 
 @property (assign, nonatomic) BOOL autoUpdate;
 @property (assign, nonatomic) NSInteger interval;
+@property (assign, nonatomic) NSInteger capacity;
+@property (retain, nonatomic) NSString *remaining;
 
 @property (retain) NSMutableArray *detailUsages;
 

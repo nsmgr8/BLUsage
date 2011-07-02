@@ -24,6 +24,8 @@
 
 @synthesize autoUpdate;
 @synthesize interval;
+@synthesize capacity;
+@synthesize remaining;
 
 @synthesize detailUsages;
 
@@ -36,6 +38,9 @@
     if (self) {
         self.username = nil;
         self.fetching = NO;
+        self.capacity = 0;
+        self.remaining = @"Unlimited";
+        self.detailUsages = [NSMutableArray array];
         
         dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"dd/MM/YYYY"];
@@ -53,6 +58,9 @@
         [monthComponents setDay:30];
         self.to = [gregorian dateFromComponents:monthComponents];
         [gregorian release];
+        
+        [self addObserver:self forKeyPath:@"detailUsages" options:0 context:NULL];
+        [self addObserver:self forKeyPath:@"capacity" options:0 context:NULL];
     }
     
     return self;
@@ -74,6 +82,7 @@
         
         self.autoUpdate = [[aDecoder decodeObjectForKey:@"autoupdate"] boolValue];
         self.interval = [[aDecoder decodeObjectForKey:@"interval"] integerValue];
+        self.capacity = [[aDecoder decodeObjectForKey:@"capacity"] integerValue];
     }
     
     return self;
@@ -92,6 +101,7 @@
     
     [aCoder encodeObject:[NSNumber numberWithBool:self.autoUpdate] forKey:@"autoupdate"];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.interval] forKey:@"interval"];
+    [aCoder encodeObject:[NSNumber numberWithInteger:self.capacity] forKey:@"capacity"];
 }
 
 - (void)dealloc
@@ -105,11 +115,46 @@
     [lastUpdate release];
 
     [detailUsages release];
+    [remaining release];
 
     [dateFormatter release];
 
     [super dealloc];
 }
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context {
+    if ([keyPath isEqualToString:@"detailUsages"] || [keyPath isEqualToString:@"capacity"]) {
+        if (self.remaining) {
+            [remaining release];
+        }
+        
+        if (self.capacity == 0) {
+            self.remaining = @"Unlimited";
+            return;
+        }
+        
+        NSInteger total = 0;
+        for (BLDailyUsage *daily in self.detailUsages) {
+            total += [daily.dataKB integerValue];
+        }
+        
+        float rem = self.capacity - total;
+        NSString *unit = nil;
+        if (fabs(rem) < 1500) {
+            unit = @"KB";
+        }
+        else if (fabs(rem) < 1500000) {
+            rem /= 1024;
+            unit = @"MB";
+        }
+        else {
+            rem /= 1024 * 1024;
+            unit = @"GB";
+        }
+        self.remaining = [NSString stringWithFormat:@"%0.2f %@", rem, unit];
+    }
+}
+
 
 - (void)copyContent:(BLUsage *)anOther {
     self.accountName = anOther.accountName;
@@ -121,6 +166,7 @@
     self.lastUpdate = anOther.lastUpdate;
     
     self.detailUsages = anOther.detailUsages;
+    self.capacity = anOther.capacity;
     
     self.autoUpdate = anOther.autoUpdate;
     self.interval = anOther.interval;
@@ -216,6 +262,7 @@
         [self.detailUsages release];
     }
     self.detailUsages = data;
+    
 
     self.lastUpdate = [NSDate date];
 
