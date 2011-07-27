@@ -24,8 +24,6 @@
 {
     self = [super init];
     if (self) {
-        scheduled = NO;
-
         archivePath = [[NSHomeDirectory() stringByAppendingPathComponent:@".BLUsage.archive"] retain];
         
         usageModel = [BLUsage new];
@@ -68,16 +66,6 @@
     [self buildTree];
 
     [self sendGrowl];
-
-    if (self.usageModel.autoUpdate && self.usageModel.interval > 0 && !scheduled) {
-        scheduled = YES;
-        [self performSelector:@selector(fetchScheduled) withObject:nil afterDelay:self.usageModel.interval * 3600];
-    }
-}
-
-- (void)fetchScheduled {
-    scheduled = NO;
-    [self.usageModel startUpdate];
 }
 
 - (void)sendGrowl {

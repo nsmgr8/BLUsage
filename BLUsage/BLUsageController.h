@@ -20,8 +20,6 @@
 
     NSTreeNode *root;
     NSString *archivePath;
-    
-    BOOL scheduled;
 }
 
 @property (assign) IBOutlet NSOutlineView *detailView;
@@ -32,7 +30,6 @@
 - (void)updateUI;
 - (void)buildTree;
 - (void)sendGrowl;
-- (void)fetchScheduled;
 
 - (void)showMessage:(NSString *)msg;
 

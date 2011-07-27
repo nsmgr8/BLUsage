@@ -22,8 +22,6 @@
 @synthesize to;
 @synthesize lastUpdate;
 
-@synthesize autoUpdate;
-@synthesize interval;
 @synthesize capacity;
 @synthesize remaining;
 
@@ -44,9 +42,6 @@
         
         dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateFormat:@"dd/MM/YYYY"];
-
-        self.autoUpdate = YES;
-        self.interval = 2;
 
         NSDate *today = [NSDate date];
         NSCalendar *gregorian = [[NSCalendar alloc] initWithCalendarIdentifier:NSGregorianCalendar];
@@ -80,8 +75,6 @@
         
         self.detailUsages = [aDecoder decodeObjectForKey:@"detail"];
         
-        self.autoUpdate = [[aDecoder decodeObjectForKey:@"autoupdate"] boolValue];
-        self.interval = [[aDecoder decodeObjectForKey:@"interval"] integerValue];
         self.capacity = [[aDecoder decodeObjectForKey:@"capacity"] integerValue];
     }
     
@@ -99,8 +92,6 @@
 
     [aCoder encodeObject:self.detailUsages forKey:@"detail"];
     
-    [aCoder encodeObject:[NSNumber numberWithBool:self.autoUpdate] forKey:@"autoupdate"];
-    [aCoder encodeObject:[NSNumber numberWithInteger:self.interval] forKey:@"interval"];
     [aCoder encodeObject:[NSNumber numberWithInteger:self.capacity] forKey:@"capacity"];
 }
 
@@ -167,9 +158,6 @@
     
     self.detailUsages = anOther.detailUsages;
     self.capacity = anOther.capacity;
-    
-    self.autoUpdate = anOther.autoUpdate;
-    self.interval = anOther.interval;
 }
 
 - (NSString*) description {

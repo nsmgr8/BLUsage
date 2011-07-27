@@ -18,8 +18,6 @@
     NSDate *to;
     NSDate *lastUpdate;
 
-    BOOL autoUpdate;
-    NSInteger interval;
     NSInteger capacity;
     NSString *remaining;
 
@@ -40,8 +38,6 @@
 @property (retain, nonatomic) NSDate *to;
 @property (retain, nonatomic) NSDate *lastUpdate;
 
-@property (assign, nonatomic) BOOL autoUpdate;
-@property (assign, nonatomic) NSInteger interval;
 @property (assign, nonatomic) NSInteger capacity;
 @property (retain, nonatomic) NSString *remaining;
 
